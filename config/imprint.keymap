@@ -156,12 +156,6 @@
 
 &trackball_peripheral_listener {
     input-processors =
-        // Apply speed scaling based on active layer
-        <&zip_layer_scaler LAYER_MAP(
-            4, 1, 6,   // Layer 4 (Mouse_Slow): multiply by 1, divide by 6 (slower)
-            5, 1, 2,   // Layer 5 (Mouse_Normal): multiply by 1, divide by 2 (normal speed)
-            6, 3, 2    // Layer 6 (Mouse_Fast): multiply by 3, divide by 2 (faster)
-        )>,
         // activate mouse layer within 500 ms of the trackball moving 
         <&zip_temp_layer 5 500>;
 };
