@@ -47,14 +47,14 @@
 
         qwerty {
             bindings = <
-&none      &none                              &none                                &none                            &none                        &none                           &none         &none                        &none                                &none                                  &none                                 &none
-&none      &none                              &none                                &none                            &none                        &none                           &none         &none                        &none                                &none                                  &none                                 &none
-&kp ESC    &kp Q                              &kp W                                &kp E                            &kp R                        &kp T                           &kp Y         &kp U                        &kp I                                &kp O                                  &kp P                                 &kp LEFT_CONTROL
-&kp TAB    &kp A                              &kp S                                &kp D                            &kp F                        &kp G                           &kp H         &kp J                        &kp K                                &kp L                                  &kp SEMI                              &kp SQT
-&kp LSHFT  &Tap_Preferred_180ms LEFT_SHIFT Z  &Tap_Preferred_180ms LEFT_CONTROL X  &Tap_Preferred_180ms LEFT_ALT C  &Tap_Preferred_180ms LCMD V  &kp B                           &kp N         &Tap_Preferred_180ms LCMD M  &Tap_Preferred_180ms LEFT_ALT COMMA  &Tap_Preferred_180ms LEFT_CONTROL DOT  &Tap_Preferred_180ms LEFT_SHIFT FSLH  &kp RSHFT
-                                              &kp LGUI                             &kp LALT                                                                                                                                 &kp LALT                             &kp LCMD
-                                                                                                                    &lt 3 SPACE                  &kp DELETE  &kp LEFT_CONTROL    &kp LEFT_ALT  &lt 2 ENTER                  &lt 3 BACKSPACE
-                                                                                                                    &lt 4 ESCAPE                 &kp TAB     &kp CAPS            &kp CAPS      &lt 5 TAB                    &kp INSERT
+&none      &none                              &none                                &none                            &none                        &none                     &none      &none                        &none                                &none                                  &none                                 &none
+&none      &none                              &none                                &none                            &none                        &none                     &none      &none                        &none                                &none                                  &none                                 &none
+&kp ESC    &kp Q                              &kp W                                &kp E                            &kp R                        &kp T                     &kp Y      &kp U                        &kp I                                &kp O                                  &kp P                                 &kp LEFT_CONTROL
+&kp TAB    &kp A                              &kp S                                &kp D                            &kp F                        &kp G                     &kp H      &kp J                        &kp K                                &kp L                                  &kp SEMI                              &kp SQT
+&kp LSHFT  &Tap_Preferred_180ms LEFT_SHIFT Z  &Tap_Preferred_180ms LEFT_CONTROL X  &Tap_Preferred_180ms LEFT_ALT C  &Tap_Preferred_180ms LCMD V  &kp B                     &kp N      &Tap_Preferred_180ms LCMD M  &Tap_Preferred_180ms LEFT_ALT COMMA  &Tap_Preferred_180ms LEFT_CONTROL DOT  &Tap_Preferred_180ms LEFT_SHIFT FSLH  &kp LEFT_CONTROL
+                                              &kp LGUI                             &kp LALT                                                                                                                        &kp LALT                             &kp LCMD
+                                                                                                                    &lt 3 SPACE                  &lt 4 ESCAPE  &kp TAB     &lt 5 TAB  &lt 2 ENTER                  &lt 3 BACKSPACE
+                                                                                                                    &kp LEFT_CONTROL             &kp DELETE    &kp CAPS    &kp CAPS   &kp DELETE                   &kp INSERT
             >;
         };
 
@@ -129,7 +129,7 @@
 
 &trackball_peripheral_listener {
     input-processors =
-        // activate mouse layer within 500 ms of the trackball moving ,,,,
+        // activate mouse layer within 500 ms of the trackball moving ,,,,,
         <&zip_temp_layer 5 500>;
 };
 
@@ -137,10 +137,10 @@
 
 &trackball_central_listener {
     input-processors =
-        // multiply sensitivity by 1, divide by 12 (make it slower for scrolling),,,
+        // multiply sensitivity by 1, divide by 12 (make it slower for scrolling),,,,
         <&zip_xy_scaler 1 16>,
-        // make this trackball output scrolling events by default instead of cursor movement,,,
+        // make this trackball output scrolling events by default instead of cursor movement,,,,
         <&zip_xy_to_scroll_mapper>,
-        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,
+        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,
         <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>;
 };
