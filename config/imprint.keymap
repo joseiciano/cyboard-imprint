@@ -56,7 +56,7 @@
             bindings = <&kp>, <&kp>;
 
             #binding-cells = <2>;
-            tapping-term-ms = <180>;
+            tapping-term-ms = <170>;
             flavor = "tap-preferred";
         };
     };
@@ -105,14 +105,14 @@
 
         symbol_layer {
             bindings = <
-&trans           &trans            &trans                     &trans                 &trans                 &trans                  &trans  &trans                    &trans            &trans                          &trans            &trans
-&trans           &trans            &trans                     &trans                 &trans                 &trans                  &trans  &trans                    &trans            &trans                          &trans            &trans
-&kp GRAVE        &kp LEFT_BRACKET  &kp LS(LEFT_PARENTHESIS)   &kp RIGHT_PARENTHESIS  &kp RIGHT_BRACKET      &kp PERIOD              &none   &kp LS(LEFT_ALT)          &kp SLASH         &kp BACKSLASH                   &none             &none
-&kp EXCLAMATION  &kp AT            &kp LEFT_BRACE             &kp RIGHT_BRACE        &kp SEMI               &kp QUESTION            &none   &kp LESS_THAN             &kp PIPE          &kp MINUS                       &kp GREATER_THAN  &none
-&kp TILDE        &mt LCMD CARET    &mt LEFT_CONTROL KP_EQUAL  &mt LEFT_ALT UNDER     &mt LEFT_SHIFT DOLLAR  &kp STAR                &none   &mt LEFT_SHIFT AMPERSAND  &mt LEFT_ALT SQT  &mt LEFT_CONTROL DOUBLE_QUOTES  &mt LCMD PLUS     &none
-                                   &trans                     &trans                                                                                                  &trans            &trans
-                                                                                     &trans                 &trans        &trans    &trans  &trans                    &trans
-                                                                                     &trans                 &trans        &trans    &trans  &trans                    &trans
+&trans           &trans                           &trans                                      &trans                               &trans                                  &trans                  &trans  &trans                                     &trans                             &trans                                           &trans                          &trans
+&trans           &trans                           &trans                                      &trans                               &trans                                  &trans                  &trans  &trans                                     &trans                             &trans                                           &trans                          &trans
+&kp GRAVE        &kp LEFT_BRACKET                 &kp LS(LEFT_PARENTHESIS)                    &kp RIGHT_PARENTHESIS                &kp RIGHT_BRACKET                       &kp PERIOD              &none   &kp LS(LEFT_ALT)                           &kp SLASH                          &kp BACKSLASH                                    &none                           &none
+&kp EXCLAMATION  &kp AT                           &kp LEFT_BRACE                              &kp RIGHT_BRACE                      &kp SEMI                                &kp QUESTION            &none   &kp LESS_THAN                              &kp PIPE                           &kp MINUS                                        &kp GREATER_THAN                &none
+&kp TILDE        &Tap_Preferred_180ms LCMD CARET  &Tap_Preferred_180ms LEFT_CONTROL KP_EQUAL  &Tap_Preferred_180ms LEFT_ALT UNDER  &Tap_Preferred_180ms LEFT_SHIFT DOLLAR  &kp STAR                &none   &Tap_Preferred_180ms LEFT_SHIFT AMPERSAND  &Tap_Preferred_180ms LEFT_ALT SQT  &Tap_Preferred_180ms LEFT_CONTROL DOUBLE_QUOTES  &Tap_Preferred_180ms LCMD PLUS  &none
+                                                  &trans                                      &trans                                                                                                                                                  &trans                             &trans
+                                                                                                                                   &trans                                  &trans        &trans    &trans  &trans                                     &trans
+                                                                                                                                   &trans                                  &trans        &trans    &trans  &trans                                     &trans
             >;
         };
 
@@ -148,7 +148,7 @@
 
 &trackball_peripheral_listener {
     input-processors =
-        // activate mouse layer within 500 ms of the trackball moving ,,,,,,,,,,,,,,
+        // activate mouse layer within 500 ms of the trackball moving ,,,,,,,,,,,,,,,
         <&zip_temp_layer 5 500>;
 };
 
@@ -156,10 +156,10 @@
 
 &trackball_central_listener {
     input-processors =
-        // multiply sensitivity by 1, divide by 12 (make it slower for scrolling),,,,,,,,,,,,,
+        // multiply sensitivity by 1, divide by 12 (make it slower for scrolling),,,,,,,,,,,,,,
         <&zip_xy_scaler 1 16>,
-        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,
+        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,
         <&zip_xy_to_scroll_mapper>,
-        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,
+        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,
         <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>;
 };
