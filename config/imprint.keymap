@@ -66,53 +66,53 @@
 
         qwerty {
             bindings = <
-&none      &none                        &none                                &none                            &none                              &none                             &none             &none                              &none                                &none                                  &none                           &none
-&none      &none                        &none                                &none                            &none                              &none                             &none             &none                              &none                                &none                                  &none                           &none
-&kp ESC    &kp Q                        &kp W                                &kp E                            &kp R                              &kp T                             &kp Y             &kp U                              &kp I                                &kp O                                  &kp P                           &kp LEFT_CONTROL
-&kp TAB    &kp A                        &kp S                                &kp D                            &kp F                              &kp G                             &kp H             &kp J                              &kp K                                &kp L                                  &kp SEMI                        &kp SQT
-&kp LSHFT  &Tap_Preferred_180ms LCMD Z  &Tap_Preferred_180ms LEFT_CONTROL X  &Tap_Preferred_180ms LEFT_ALT C  &Tap_Preferred_180ms LEFT_SHIFT V  &kp B                             &kp N             &Tap_Preferred_180ms LEFT_SHIFT M  &Tap_Preferred_180ms LEFT_ALT COMMA  &Tap_Preferred_180ms LEFT_CONTROL DOT  &Tap_Preferred_180ms LCMD FSLH  &kp LEFT_CONTROL
-                                        &kp LEFT_ALT                         &kp LCMD                                                                                                                                                   &kp LCMD                             &kp LEFT_ALT
-                                                                                                              &kp LEFT_SHIFT                     &kp LEFT_ALT  &kp LEFT_CONTROL    &kp LEFT_CONTROL  &lt 5 TAB                          &lt 2 BACKSPACE
-                                                                                                              &lt 2 SPACE                        &lt 3 ESCAPE  &kp LCMD            &kp LCMD          &kp LEFT_ALT                       &lt 3 ENTER
+&none      &none                              &none                                &none                            &none                        &none                             &none             &none                        &none                                &none                                  &none                                 &none
+&none      &none                              &none                                &none                            &none                        &none                             &none             &none                        &none                                &none                                  &none                                 &none
+&kp ESC    &kp Q                              &kp W                                &kp E                            &kp R                        &kp T                             &kp Y             &kp U                        &kp I                                &kp O                                  &kp P                                 &kp LEFT_CONTROL
+&kp TAB    &kp A                              &kp S                                &kp D                            &kp F                        &kp G                             &kp H             &kp J                        &kp K                                &kp L                                  &kp SEMI                              &kp SQT
+&kp LSHFT  &Tap_Preferred_180ms LEFT_SHIFT Z  &Tap_Preferred_180ms LEFT_CONTROL X  &Tap_Preferred_180ms LEFT_ALT C  &Tap_Preferred_180ms LCMD V  &kp B                             &kp N             &Tap_Preferred_180ms LCMD M  &Tap_Preferred_180ms LEFT_ALT COMMA  &Tap_Preferred_180ms LEFT_CONTROL DOT  &Tap_Preferred_180ms LEFT_SHIFT FSLH  &kp LEFT_CONTROL
+                                              &kp LEFT_ALT                         &kp LCMD                                                                                                                                       &kp LCMD                             &kp LEFT_ALT
+                                                                                                                    &kp LEFT_SHIFT               &kp LEFT_ALT  &kp LEFT_CONTROL    &kp LEFT_CONTROL  &lt 5 TAB                    &lt 2 BACKSPACE
+                                                                                                                    &lt 2 SPACE                  &lt 3 ESCAPE  &kp LCMD            &kp LCMD          &kp LEFT_ALT                 &lt 3 ENTER
             >;
         };
 
         colemak-dh {
             bindings = <
-&none   &none                        &none                                &none                            &none                              &none             &none   &none                              &none                                &none                                  &none                           &none
-&none   &none                        &none                                &none                            &none                              &none             &none   &none                              &none                                &none                                  &none                           &none
-&trans  &kp Q                        &kp W                                &kp F                            &kp P                              &kp B             &kp J   &kp L                              &kp U                                &kp Y                                  &kp SEMICOLON                   &trans
-&trans  &kp A                        &kp R                                &kp S                            &kp T                              &kp G             &kp M   &kp N                              &kp E                                &kp I                                  &kp O                           &trans
-&trans  &Tap_Preferred_180ms LCMD Z  &Tap_Preferred_180ms LEFT_CONTROL X  &Tap_Preferred_180ms LEFT_ALT C  &Tap_Preferred_180ms LEFT_SHIFT D  &kp V             &kp K   &Tap_Preferred_180ms LEFT_SHIFT H  &Tap_Preferred_180ms LEFT_ALT COMMA  &Tap_Preferred_180ms LEFT_CONTROL DOT  &Tap_Preferred_180ms LCMD FSLH  &trans
-                                     &trans                               &trans                                                                                                                           &trans                               &trans
-                                                                                                           &trans                             &trans  &trans    &trans  &trans                             &trans
-                                                                                                           &trans                             &trans  &trans    &trans  &trans                             &trans
+&none   &none                              &none                                &none                            &none                        &none             &none   &none                        &none                                &none                                  &none                                 &none
+&none   &none                              &none                                &none                            &none                        &none             &none   &none                        &none                                &none                                  &none                                 &none
+&trans  &kp Q                              &kp W                                &kp F                            &kp P                        &kp B             &kp J   &kp L                        &kp U                                &kp Y                                  &kp SEMICOLON                         &trans
+&trans  &kp A                              &kp R                                &kp S                            &kp T                        &kp G             &kp M   &kp N                        &kp E                                &kp I                                  &kp O                                 &trans
+&trans  &Tap_Preferred_180ms LEFT_SHIFT Z  &Tap_Preferred_180ms LEFT_CONTROL X  &Tap_Preferred_180ms LEFT_ALT C  &Tap_Preferred_180ms LCMD D  &kp V             &kp K   &Tap_Preferred_180ms LCMD H  &Tap_Preferred_180ms LEFT_ALT COMMA  &Tap_Preferred_180ms LEFT_CONTROL DOT  &Tap_Preferred_180ms LEFT_SHIFT FSLH  &trans
+                                           &trans                               &trans                                                                                                               &trans                               &trans
+                                                                                                                 &trans                       &trans  &trans    &trans  &trans                       &trans
+                                                                                                                 &trans                       &trans  &trans    &trans  &trans                       &trans
             >;
         };
 
         Numpad_Nav_Layer {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans          &trans        &trans            &trans            &trans
-&trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans          &trans        &trans            &trans            &trans
-&none   &none   &kp N7  &kp N8  &kp N9  &none             &none   &none           &none         &none             &none             &none
-&none   &none   &kp N4  &kp N5  &kp N6  &kp N0            &none   &kp LEFT        &kp UP_ARROW  &kp DOWN          &kp RIGHT         &none
-&none   &none   &kp N1  &kp N2  &kp N3  &none             &none   &kp LEFT_SHIFT  &kp LEFT_ALT  &kp LEFT_CONTROL  &kp LEFT_COMMAND  &none
-                &trans  &trans                                                    &trans        &trans
-                                &trans  &trans  &trans    &trans  &trans          &trans
-                                &trans  &trans  &trans    &trans  &trans          &trans
+&trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans    &trans        &trans            &trans          &trans
+&trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans    &trans        &trans            &trans          &trans
+&none   &none   &kp N7  &kp N8  &kp N9  &none             &none   &none     &none         &none             &none           &none
+&none   &none   &kp N4  &kp N5  &kp N6  &kp N0            &none   &kp LEFT  &kp UP_ARROW  &kp DOWN          &kp RIGHT       &none
+&none   &none   &kp N1  &kp N2  &kp N3  &none             &none   &kp LCMD  &kp LEFT_ALT  &kp LEFT_CONTROL  &kp LEFT_SHIFT  &none
+                &trans  &trans                                              &trans        &trans
+                                &trans  &trans  &trans    &trans  &trans    &trans
+                                &trans  &trans  &trans    &trans  &trans    &trans
             >;
         };
 
         symbol_layer {
             bindings = <
-&trans           &trans                           &trans                                      &trans                               &trans                                  &trans                  &trans  &trans                                     &trans                             &trans                                           &trans                          &trans
-&trans           &trans                           &trans                                      &trans                               &trans                                  &trans                  &trans  &trans                                     &trans                             &trans                                           &trans                          &trans
-&kp GRAVE        &kp LEFT_BRACKET                 &kp LS(LEFT_PARENTHESIS)                    &kp RIGHT_PARENTHESIS                &kp RIGHT_BRACKET                       &kp PERIOD              &none   &kp LS(LEFT_ALT)                           &kp SLASH                          &kp BACKSLASH                                    &none                           &none
-&kp EXCLAMATION  &kp AT                           &kp LEFT_BRACE                              &kp RIGHT_BRACE                      &kp SEMI                                &kp QUESTION            &none   &kp LESS_THAN                              &kp PIPE                           &kp MINUS                                        &kp GREATER_THAN                &none
-&kp TILDE        &Tap_Preferred_180ms LCMD CARET  &Tap_Preferred_180ms LEFT_CONTROL KP_EQUAL  &Tap_Preferred_180ms LEFT_ALT UNDER  &Tap_Preferred_180ms LEFT_SHIFT DOLLAR  &kp STAR                &none   &Tap_Preferred_180ms LEFT_SHIFT AMPERSAND  &Tap_Preferred_180ms LEFT_ALT SQT  &Tap_Preferred_180ms LEFT_CONTROL DOUBLE_QUOTES  &Tap_Preferred_180ms LCMD PLUS  &none
-                                                  &trans                                      &trans                                                                                                                                                  &trans                             &trans
-                                                                                                                                   &trans                                  &trans        &trans    &trans  &trans                                     &trans
-                                                                                                                                   &trans                                  &trans        &trans    &trans  &trans                                     &trans
+&trans           &trans                                 &trans                                      &trans                               &trans                            &trans                  &trans  &trans                               &trans                             &trans                                           &trans                                &trans
+&trans           &trans                                 &trans                                      &trans                               &trans                            &trans                  &trans  &trans                               &trans                             &trans                                           &trans                                &trans
+&kp GRAVE        &kp LEFT_BRACKET                       &kp LS(LEFT_PARENTHESIS)                    &kp RIGHT_PARENTHESIS                &kp RIGHT_BRACKET                 &kp PERIOD              &none   &kp LS(LEFT_ALT)                     &kp SLASH                          &kp BACKSLASH                                    &none                                 &none
+&kp EXCLAMATION  &kp AT                                 &kp LEFT_BRACE                              &kp RIGHT_BRACE                      &kp SEMI                          &kp QUESTION            &none   &kp LESS_THAN                        &kp PIPE                           &kp MINUS                                        &kp GREATER_THAN                      &none
+&kp TILDE        &Tap_Preferred_180ms LEFT_SHIFT CARET  &Tap_Preferred_180ms LEFT_CONTROL KP_EQUAL  &Tap_Preferred_180ms LEFT_ALT UNDER  &Tap_Preferred_180ms LCMD DOLLAR  &kp STAR                &none   &Tap_Preferred_180ms LCMD AMPERSAND  &Tap_Preferred_180ms LEFT_ALT SQT  &Tap_Preferred_180ms LEFT_CONTROL DOUBLE_QUOTES  &Tap_Preferred_180ms LEFT_SHIFT PLUS  &none
+                                                        &trans                                      &trans                                                                                                                                      &trans                             &trans
+                                                                                                                                         &trans                            &trans        &trans    &trans  &trans                               &trans
+                                                                                                                                         &trans                            &trans        &trans    &trans  &trans                               &trans
             >;
         };
 
@@ -148,7 +148,7 @@
 
 &trackball_peripheral_listener {
     input-processors =
-        // activate mouse layer within 500 ms of the trackball moving ,,,,,,,,,,,,,,,,
+        // activate mouse layer within 500 ms of the trackball moving ,,,,,,,,,,,,,,,,,
         <&zip_temp_layer 5 500>;
 };
 
@@ -156,10 +156,10 @@
 
 &trackball_central_listener {
     input-processors =
-        // multiply sensitivity by 1, divide by 12 (make it slower for scrolling),,,,,,,,,,,,,,,
+        // multiply sensitivity by 1, divide by 12 (make it slower for scrolling),,,,,,,,,,,,,,,,
         <&zip_xy_scaler 1 16>,
-        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,
+        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,
         <&zip_xy_to_scroll_mapper>,
-        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,
+        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,,
         <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>;
 };
