@@ -172,3 +172,108 @@
         // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,,,,,
         <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>;
 };
+
+ //////////////////////////////////////////////////////////////////////////
+  //
+  // Approximation of Pascal Getreuer's Select Word macro from QMK
+  // - https://getreuer.info/posts/keyboards/select-word/index.html
+  //
+  //////////////////////////////////////////////////////////////////////////
+
+
+  //
+  // SELECT_WORD_DELAY defines how long the macro waits (milliseconds)
+  // after moving the cursor before it selects a word.  A larger delay
+  // may allow the macro to move to the next word upon each invocation.
+  //
+  #ifndef SELECT_WORD_DELAY
+  #define SELECT_WORD_DELAY 1
+  #endif
+
+  #define select_all kp _C(A)
+
+  ZMK_MACRO(select_none,
+    wait-ms = <SELECT_WORD_DELAY>;
+    tap-ms = <SELECT_WORD_DELAY>;
+    bindings = <&kp DOWN &kp UP &kp RIGHT &kp LEFT>;
+  )
+
+  //
+  // select a word (jumps to next word upon each successive invocation)
+  //
+  select_word: select_word {
+    compatible = "zmk,behavior-mod-morph";
+    #binding-cells = <0>;
+    bindings = <&select_word_right>, <&select_word_left>;
+    mods = <(MOD_LSFT|MOD_RSFT)>;
+  };
+  ZMK_MACRO(select_word_right,
+    wait-ms = <SELECT_WORD_DELAY>;
+    tap-ms = <SELECT_WORD_DELAY>;
+    bindings = <&kp _WORD(RIGHT) &kp _WORD(LEFT) &kp _WORD(LS(RIGHT))>;
+  )
+  ZMK_MACRO(select_word_left,
+    wait-ms = <SELECT_WORD_DELAY>;
+    tap-ms = <SELECT_WORD_DELAY>;
+    bindings = <&kp _WORD(LEFT) &kp _WORD(RIGHT) &kp _WORD(LS(LEFT))>;
+  )
+
+  //
+  // extend current selection by one word
+  //
+  extend_word: extend_word {
+    compatible = "zmk,behavior-mod-morph";
+    #binding-cells = <0>;
+    bindings = <&extend_word_right>, <&extend_word_left>;
+    mods = <(MOD_LSFT|MOD_RSFT)>;
+  };
+  ZMK_MACRO(extend_word_right,
+    wait-ms = <SELECT_WORD_DELAY>;
+    tap-ms = <SELECT_WORD_DELAY>;
+    bindings = <&kp _WORD(LS(RIGHT))>;
+  )
+  ZMK_MACRO(extend_word_left,
+    wait-ms = <SELECT_WORD_DELAY>;
+    tap-ms = <SELECT_WORD_DELAY>;
+    bindings = <&kp _WORD(LS(LEFT))>;
+  )
+
+  //
+  // select current line
+  //
+  select_line: select_line {
+    compatible = "zmk,behavior-mod-morph";
+    #binding-cells = <0>;
+    bindings = <&select_line_right>, <&select_line_left>;
+    mods = <(MOD_LSFT|MOD_RSFT)>;
+  };
+  ZMK_MACRO(select_line_right,
+    wait-ms = <SELECT_WORD_DELAY>;
+    tap-ms = <SELECT_WORD_DELAY>;
+    bindings = <&kp _HOME &kp LS(_END)>;
+  )
+  ZMK_MACRO(select_line_left,
+    wait-ms = <SELECT_WORD_DELAY>;
+    tap-ms = <SELECT_WORD_DELAY>;
+    bindings = <&kp _END &kp LS(_HOME)>;
+  )
+
+  //
+  // extend current selection by one line
+  //
+  extend_line: extend_line {
+    compatible = "zmk,behavior-mod-morph";
+    #binding-cells = <0>;
+    bindings = <&extend_line_right>, <&extend_line_left>;
+    mods = <(MOD_LSFT|MOD_RSFT)>;
+  };
+  ZMK_MACRO(extend_line_right,
+    wait-ms = <SELECT_WORD_DELAY>;
+    tap-ms = <SELECT_WORD_DELAY>;
+    bindings = <&kp LS(DOWN) &kp LS(_END)>;
+  )
+  ZMK_MACRO(extend_line_left,
+    wait-ms = <SELECT_WORD_DELAY>;
+    tap-ms = <SELECT_WORD_DELAY>;
+    bindings = <&kp LS(UP) &kp LS(_HOME)>;
+  )
