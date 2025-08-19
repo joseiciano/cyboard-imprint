@@ -25,7 +25,7 @@
         };
 
         capslock {
-            bindings = <&kp CAPSLOCK>;
+            bindings = <&caps_word>;
             key-positions = <71 74>;
             layers = <0 1>;
         };
@@ -61,15 +61,6 @@
         };
     };
 
-    macros {
-        altshift: altshift {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&none>;
-            label = "ALTSHIFT";
-        };
-    };
-
     keymap {
         compatible = "zmk,keymap";
 
@@ -81,8 +72,8 @@
 &kp TAB    &kp A                              &kp S                                &kp D                            &kp F                        &kp G                             &kp H             &kp J                        &kp K                                &kp L                                  &kp SEMI                              &kp SQT
 &kp LSHFT  &Tap_Preferred_180ms LEFT_SHIFT Z  &Tap_Preferred_180ms LEFT_CONTROL X  &Tap_Preferred_180ms LEFT_ALT C  &Tap_Preferred_180ms LCMD V  &kp B                             &kp N             &Tap_Preferred_180ms LCMD M  &Tap_Preferred_180ms LEFT_ALT COMMA  &Tap_Preferred_180ms LEFT_CONTROL DOT  &Tap_Preferred_180ms LEFT_SHIFT FSLH  &kp LEFT_CONTROL
                                               &kp LEFT_ALT                         &kp LCMD                                                                                                                                       &kp LCMD                             &kp LEFT_ALT
-                                                                                                                    &kp LEFT_SHIFT               &kp LEFT_ALT  &kp LEFT_CONTROL    &kp LEFT_CONTROL  &lt 5 TAB                    &lt 2 BACKSPACE
-                                                                                                                    &lt 2 SPACE                  &lt 3 ESCAPE  &kp LCMD            &kp LCMD          &kp LEFT_ALT                 &lt 3 ENTER
+                                                                                                                    &kp LEFT_SHIFT               &kp LEFT_ALT  &kp LEFT_CONTROL    &kp LEFT_CONTROL  &lt 5 TAB                    &kp LEFT_SHIFT
+                                                                                                                    &lt 2 SPACE                  &lt 3 ESCAPE  &kp LCMD            &kp LCMD          &lt 3 ENTER                  &lt 2 BACKSPACE
             >;
         };
 
@@ -150,6 +141,19 @@
                                                 &mkp LCLK        &mkp RCLK       &mkp MB4    &trans  &trans          &trans
             >;
         };
+
+        typing {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans  &trans  &trans  &trans  &trans
+                &trans  &trans                                            &trans  &trans
+                                &trans  &trans  &trans    &trans  &trans  &trans
+                                &trans  &trans  &trans    &trans  &trans  &trans
+            >;
+        };
     };
 };
 
@@ -157,7 +161,7 @@
 
 &trackball_peripheral_listener {
     input-processors =
-        // activate mouse layer within 500 ms of the trackball moving ,,,,,,,,,,,,,,,,,,,,
+        // activate mouse layer within 500 ms of the trackball moving ,,,,,,,,,,,,,,,,,,,,,
         <&zip_temp_layer 5 500>;
 };
 
@@ -165,10 +169,10 @@
 
 &trackball_central_listener {
     input-processors =
-        // multiply sensitivity by 1, divide by 12 (make it slower for scrolling),,,,,,,,,,,,,,,,,,,
+        // multiply sensitivity by 1, divide by 12 (make it slower for scrolling),,,,,,,,,,,,,,,,,,,,
         <&zip_xy_scaler 1 16>,
-        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,,,,
+        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,,,,,
         <&zip_xy_to_scroll_mapper>,
-        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,,,,,
+        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,,,,,,
         <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>;
 };
