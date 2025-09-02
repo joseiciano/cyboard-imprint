@@ -87,6 +87,29 @@
         };
     };
 
+    macros {
+        move_tab_to_start: move_tab_to_start {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LCMD &kp LEFT_SHIFT &kp HOME>;
+            label = "MOVE_TAB_TO_START";
+        };
+
+        move_tab_to_end: new_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LCMD &kp LEFT_SHIFT &kp END>;
+            label = "NEW_MACRO";
+        };
+
+        superkey: superkey {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LCMD &kp LEFT_ALT &kp LEFT_CONTROL>;
+            label = "SUPERKEY";
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -94,7 +117,7 @@
             bindings = <
 &none      &none                              &none                                &none                            &none                        &none                    &none  &none                        &none                                &none                                  &none                                 &none
 &none      &none                              &none                                &none                            &none                        &none                    &none  &none                        &none                                &none                                  &none                                 &none
-&kp ESC    &kp Q                              &kp W                                &kp E                            &kp R                        &kp T                    &kp Y  &kp U                        &kp I                                &kp O                                  &kp P                                 &kp LEFT_CONTROL
+&kp ESC    &kp Q                              &kp W                                &kp E                            &kp R                        &kp T                    &kp Y  &kp U                        &kp I                                &kp O                                  &kp P                                 &superkey
 &kp TAB    &kp A                              &kp S                                &kp D                            &kp F                        &kp G                    &kp H  &kp J                        &kp K                                &kp L                                  &kp SEMI                              &kp SQT
 &kp LSHFT  &Tap_Preferred_180ms LEFT_SHIFT Z  &Tap_Preferred_180ms LEFT_CONTROL X  &Tap_Preferred_180ms LEFT_ALT C  &Tap_Preferred_180ms LCMD V  &kp B                    &kp N  &Tap_Preferred_180ms LCMD M  &Tap_Preferred_180ms LEFT_ALT COMMA  &Tap_Preferred_180ms LEFT_CONTROL DOT  &Tap_Preferred_180ms LEFT_SHIFT FSLH  &kp LEFT_CONTROL
                                               &kp LEFT_ALT                         &kp LCMD                                                                                                                   &kp LCMD                             &kp LEFT_ALT
@@ -118,14 +141,14 @@
 
         Numpad_Nav_Layer {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans            &trans        &trans            &trans          &trans
-&trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans            &trans        &trans            &trans          &trans
-&none   &none   &kp N7  &kp N8  &kp N9  &none             &none   &kp LS(LEFT_ALT)  &none         &none             &none           &none
-&none   &none   &kp N4  &kp N5  &kp N6  &kp N0            &none   &kp LEFT          &kp UP_ARROW  &kp DOWN          &kp RIGHT       &none
-&none   &none   &kp N1  &kp N2  &kp N3  &none             &none   &kp LCMD          &kp LEFT_ALT  &kp LEFT_CONTROL  &kp LEFT_SHIFT  &none
-                &trans  &trans                                                      &trans        &trans
-                                &trans  &trans  &trans    &trans  &trans            &trans
-                                &trans  &trans  &trans    &trans  &trans            &trans
+&trans  &trans  &trans  &trans  &trans  &trans            &trans              &trans     &trans            &trans            &trans          &trans
+&trans  &trans  &trans  &trans  &trans  &trans            &trans              &trans     &trans            &trans            &trans          &trans
+&none   &none   &kp N7  &kp N8  &kp N9  &none             &move_tab_to_start  &superkey  &kp LS(LEFT_ALT)  &none             &none           &none
+&none   &none   &kp N4  &kp N5  &kp N6  &kp N0            &move_tab_to_end    &kp LEFT   &kp UP_ARROW      &kp DOWN          &kp RIGHT       &none
+&none   &none   &kp N1  &kp N2  &kp N3  &none             &none               &kp LCMD   &kp LEFT_ALT      &kp LEFT_CONTROL  &kp LEFT_SHIFT  &none
+                &trans  &trans                                                           &trans            &trans
+                                &trans  &trans  &trans    &trans              &trans     &trans
+                                &trans  &trans  &trans    &trans              &trans     &trans
             >;
         };
 
@@ -187,7 +210,7 @@
 
 &trackball_peripheral_listener {
     input-processors =
-        // activate mouse layer within 500 ms of the trackball moving ,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // activate mouse layer within 500 ms of the trackball moving ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_temp_layer 5 500>;
 };
 
@@ -195,10 +218,10 @@
 
 &trackball_central_listener {
     input-processors =
-        // multiply sensitivity by 1, divide by 12 (make it slower for scrolling),,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // multiply sensitivity by 1, divide by 12 (make it slower for scrolling),,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_xy_scaler 1 16>,
-        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_xy_to_scroll_mapper>,
-        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>;
 };
