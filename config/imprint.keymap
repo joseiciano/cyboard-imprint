@@ -125,8 +125,8 @@
 &kp TAB    &kp A                              &kp S                                &kp D                            &kp F                        &kp G                    &kp H  &kp J                        &kp K                                &kp L                                  &kp SEMI                              &kp SQT
 &kp LSHFT  &Tap_Preferred_180ms LEFT_SHIFT Z  &Tap_Preferred_180ms LEFT_CONTROL X  &Tap_Preferred_180ms LEFT_ALT C  &Tap_Preferred_180ms LCMD V  &kp B                    &kp N  &Tap_Preferred_180ms LCMD M  &Tap_Preferred_180ms LEFT_ALT COMMA  &Tap_Preferred_180ms LEFT_CONTROL DOT  &Tap_Preferred_180ms LEFT_SHIFT FSLH  &kp LEFT_CONTROL
                                               &kp LEFT_ALT                         &kp LCMD                                                                                                                   &kp LCMD                             &kp LEFT_ALT
-                                                                                                                    &lt 3 ESCAPE                 &lt 4 TAB       &mo 5    &mo 5  &lt 2 ENTER                  &lt 3 BACKSPACE
-                                                                                                                    &lt 2 SPACE                  &kp LEFT_SHIFT  &mo 5    &mo 5  &kp LEFT_SHIFT               &lt 4 TAB
+                                                                                                                    &lt 2 SPACE                  &lt 3 ESCAPE    &mo 5    &mo 5  &lt 2 ENTER                  &lt 3 BACKSPACE
+                                                                                                                    &lt 4 TAB                    &kp LEFT_SHIFT  &mo 5    &mo 5  &kp LEFT_SHIFT               &lt 4 TAB
             >;
         };
 
@@ -164,7 +164,7 @@
 &kp EXCLAMATION  &kp COMMA                              &kp LEFT_BRACE                           &kp RIGHT_BRACE                      &kp SEMI                          &kp QUESTION                 &kp DOUBLE_QUOTES  &kp PERIOD                           &kp ASTERISK                        &kp COLON                                  &kp SLASH                             &kp BACKSLASH
 &kp HASH         &Tap_Preferred_180ms LEFT_SHIFT CARET  &Tap_Preferred_180ms LEFT_CONTROL EQUAL  &Tap_Preferred_180ms LEFT_ALT UNDER  &Tap_Preferred_180ms LCMD DOLLAR  &kp AT                       &kp SINGLE_QUOTE   &Tap_Preferred_180ms LCMD AMPERSAND  &Tap_Preferred_180ms LEFT_ALT PLUS  &Tap_Preferred_180ms LEFT_CONTROL PERCENT  &Tap_Preferred_180ms LEFT_SHIFT STAR  &none
                                                         &trans                                   &trans                                                                                                                                                      &trans                              &trans
-                                                                                                                                      &kp COMMA                         &kp COLON     &trans         &trans             &trans                               &trans
+                                                                                                                                      &kp COMMA                         &kp COLON     &kp AT_SIGN    &trans             &trans                               &trans
                                                                                                                                       &kp PERIOD                        &kp ASTERISK  &kp AT_SIGN    &trans             &trans                               &trans
             >;
         };
@@ -214,7 +214,7 @@
 
 &trackball_peripheral_listener {
     input-processors =
-        // activate mouse layer within 500 ms of the trackball moving ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // activate mouse layer within 500 ms of the trackball moving ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_temp_layer 5 500>;
 };
 
@@ -222,10 +222,10 @@
 
 &trackball_central_listener {
     input-processors =
-        // multiply sensitivity by 1, divide by 12 (make it slower for scrolling),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // multiply sensitivity by 1, divide by 12 (make it slower for scrolling),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_xy_scaler 1 16>,
-        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_xy_to_scroll_mapper>,
-        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>;
 };
