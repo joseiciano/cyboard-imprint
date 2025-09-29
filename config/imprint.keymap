@@ -51,11 +51,6 @@
             bindings = <&kp TAB>;
             key-positions = <70 75>;
         };
-
-        leader {
-            bindings = <&leader>;
-            key-positions = <69 64>;
-        };
     };
 
     behaviors {
@@ -108,7 +103,7 @@
             bindings = <
 &none      &none                              &none                                &none                            &none                                &none                  &none  &none                                &none                            &none                                &none                              &none
 &none      &none                              &none                                &none                            &none                                &none                  &none  &none                                &none                            &none                                &none                              &none
-&kp ESC    &Tap_Preferred_180ms LEFT_SHIFT Q  &Tap_Preferred_180ms LEFT_CONTROL W  &Tap_Preferred_180ms LEFT_ALT E  &Tap_Preferred_180ms LEFT_COMMAND R  &kp T                  &kp Y  &Tap_Preferred_180ms LEFT_COMMAND U  &Tap_Preferred_180ms LEFT_ALT I  &Tap_Preferred_180ms LEFT_CONTROL O  &Tap_Preferred_180ms LEFT_SHIFT P  &leader
+&kp ESC    &Tap_Preferred_180ms LEFT_SHIFT Q  &Tap_Preferred_180ms LEFT_CONTROL W  &Tap_Preferred_180ms LEFT_ALT E  &Tap_Preferred_180ms LEFT_COMMAND R  &kp T                  &kp Y  &Tap_Preferred_180ms LEFT_COMMAND U  &Tap_Preferred_180ms LEFT_ALT I  &Tap_Preferred_180ms LEFT_CONTROL O  &Tap_Preferred_180ms LEFT_SHIFT P  &kp LC(A)
 &kp TAB    &kp A                              &kp S                                &kp D                            &kp F                                &kp G                  &kp H  &kp J                                &kp K                            &kp L                                &kp SEMI                           &kp SQT
 &kp LSHFT  &kp Z                              &kp X                                &kp C                            &kp V                                &kp B                  &kp N  &kp M                                &kp COMMA                        &kp PERIOD                           &kp SLASH                          &kp LEFT_CONTROL
                                               &kp LEFT_ALT                         &kp LC(A)                                                                                                                                &kp LC(A)                        &kp LEFT_ALT
@@ -201,7 +196,7 @@
 
 &trackball_peripheral_listener {
     input-processors =
-        // activate mouse layer within 500 ms of the trackball moving ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // activate mouse layer within 500 ms of the trackball moving ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_temp_layer 5 500>;
 };
 
@@ -209,10 +204,10 @@
 
 &trackball_central_listener {
     input-processors =
-        // multiply sensitivity by 1, divide by 12 (make it slower for scrolling),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // multiply sensitivity by 1, divide by 12 (make it slower for scrolling),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_xy_scaler 1 16>,
-        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_xy_to_scroll_mapper>,
-        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>;
 };
