@@ -29,7 +29,7 @@
 
         capslock {
             bindings = <&caps_word>;
-            key-positions = <71 74>;
+            key-positions = <41 42>;
             layers = <0 1>;
         };
 
@@ -87,6 +87,15 @@
             y-input-code = <(-16)>;
             time-to-max-speed-ms = <1>;
         };
+
+        tap_long_press: tap_long_press {
+            compatible = "zmk,behavior-hold-tap";
+            label = "TAP_LONG_PRESS";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <180>;
+        };
     };
 
     macros {
@@ -110,27 +119,27 @@
 
         qwerty {
             bindings = <
-&none      &none  &none                            &none                                &none                                &none                  &none  &none                                &none                                &none                            &none      &none
-&none      &none  &none                            &none                                &none                                &none                  &none  &none                                &none                                &none                            &none      &none
-&kp ESC    &kp Q  &Tap_Preferred_180ms LEFT_ALT W  &Tap_Preferred_180ms LEFT_CONTROL E  &Tap_Preferred_180ms LEFT_COMMAND R  &kp T                  &kp Y  &Tap_Preferred_180ms LEFT_COMMAND U  &Tap_Preferred_180ms LEFT_CONTROL I  &Tap_Preferred_180ms LEFT_ALT O  &kp P      &kp LC(A)
-&kp TAB    &kp A  &kp S                            &kp D                                &kp F                                &kp G                  &kp H  &kp J                                &kp K                                &kp L                            &kp SEMI   &kp SQT
-&kp LSHFT  &kp Z  &kp X                            &kp C                                &kp V                                &kp B                  &kp N  &kp M                                &kp COMMA                            &kp PERIOD                       &kp SLASH  &kp LEFT_CONTROL
-                  &kp LEFT_ALT                     &kp LC(A)                                                                                                                                    &kp LC(A)                            &kp LEFT_ALT
-                                                                                        &mt LEFT_SHIFT SPACE                 &lt 3 ESCAPE  &mo 5    &mo 5  &lt 3 ENTER                          &lt 2 BACKSPACE
-                                                                                        &lt 4 TAB                            &kp LC(A)     &mo 5    &mo 5  &kp LC(A)                            &mo 5
+&none      &none                         &none                            &none                                &none                                &none                  &none  &none                                &none                                &none                            &none                         &none
+&none      &none                         &none                            &none                                &none                                &none                  &none  &none                                &none                                &none                            &none                         &none
+&kp ESC    &tap_long_press LEFT_SHIFT Q  &Tap_Preferred_180ms LEFT_ALT W  &Tap_Preferred_180ms LEFT_CONTROL E  &Tap_Preferred_180ms LEFT_COMMAND R  &kp T                  &kp Y  &Tap_Preferred_180ms LEFT_COMMAND U  &Tap_Preferred_180ms LEFT_CONTROL I  &Tap_Preferred_180ms LEFT_ALT O  &tap_long_press LEFT_SHIFT Q  &kp LC(A)
+&kp TAB    &kp A                         &kp S                            &kp D                                &kp F                                &kp G                  &kp H  &kp J                                &kp K                                &kp L                            &kp SEMI                      &kp SQT
+&kp LSHFT  &kp Z                         &kp X                            &kp C                                &kp V                                &kp B                  &kp N  &kp M                                &kp COMMA                            &kp PERIOD                       &kp SLASH                     &kp LEFT_CONTROL
+                                         &kp LEFT_ALT                     &kp LC(A)                                                                                                                                    &kp LC(A)                            &kp LEFT_ALT
+                                                                                                               &mt LEFT_SHIFT SPACE                 &lt 3 ESCAPE  &mo 5    &mo 5  &lt 3 ENTER                          &lt 2 BACKSPACE
+                                                                                                               &lt 4 TAB                            &kp LC(A)     &mo 5    &mo 5  &kp LC(A)                            &mo 5
             >;
         };
 
         colemak-dh {
             bindings = <
-&none   &none  &none                            &none                                &none                              &none             &none   &none                                &none                                &none                            &none      &none
-&none   &none  &none                            &none                                &none                              &none             &none   &none                                &none                                &none                            &none      &none
-&trans  &kp Q  &Tap_Preferred_180ms LEFT_ALT W  &Tap_Preferred_180ms LEFT_CONTROL F  &Tap_Preferred_180ms LEFT_SHIFT P  &kp B             &kp J   &Tap_Preferred_180ms LEFT_COMMAND L  &Tap_Preferred_180ms LEFT_CONTROL U  &Tap_Preferred_180ms LEFT_ALT Y  &kp COLON  &trans
-&trans  &kp A  &kp R                            &kp S                                &kp T                              &kp G             &kp M   &kp N                                &kp E                                &kp I                            &kp O      &trans
-&trans  &kp Z  &kp X                            &kp C                                &kp D                              &kp V             &kp K   &kp H                                &kp COMMA                            &kp DOT                          &kp SLASH  &trans
-               &trans                           &trans                                                                                                                                 &trans                               &trans
-                                                                                     &trans                             &trans  &trans    &trans  &trans                               &trans
-                                                                                     &trans                             &trans  &trans    &trans  &trans                               &trans
+&none   &none                         &none                            &none                                &none                              &none             &none   &none                                &none                                &none                            &none                             &none
+&none   &none                         &none                            &none                                &none                              &none             &none   &none                                &none                                &none                            &none                             &none
+&trans  &tap_long_press LEFT_SHIFT Q  &Tap_Preferred_180ms LEFT_ALT W  &Tap_Preferred_180ms LEFT_CONTROL F  &Tap_Preferred_180ms LEFT_SHIFT P  &kp B             &kp J   &Tap_Preferred_180ms LEFT_COMMAND L  &Tap_Preferred_180ms LEFT_CONTROL U  &Tap_Preferred_180ms LEFT_ALT Y  &tap_long_press LEFT_SHIFT COLON  &trans
+&trans  &kp A                         &kp R                            &kp S                                &kp T                              &kp G             &kp M   &kp N                                &kp E                                &kp I                            &kp O                             &trans
+&trans  &kp Z                         &kp X                            &kp C                                &kp D                              &kp V             &kp K   &kp H                                &kp COMMA                            &kp DOT                          &kp SLASH                         &trans
+                                      &trans                           &trans                                                                                                                                 &trans                               &trans
+                                                                                                            &trans                             &trans  &trans    &trans  &trans                               &trans
+                                                                                                            &trans                             &trans  &trans    &trans  &trans                               &trans
             >;
         };
 
@@ -175,14 +184,14 @@
 
         Mouse_Normal {
             bindings = <
-&trans  &trans  &trans          &trans          &trans           &trans                      &trans          &trans            &trans            &trans        &trans          &trans
-&trans  &trans  &trans          &trans          &trans           &trans                      &trans          &trans            &trans            &trans        &trans          &trans
-&none   &none   &mkp RCLK       &mmv MOVE_UP    &mkp LCLK        &msc SCRL_UP                &none           &kp LEFT_COMMAND  &kp LEFT_CONTROL  &kp LEFT_ALT  &kp LEFT_SHIFT  &none
-&none   &none   &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &msc SCRL_DOWN              &kp LEFT_ARROW  &kp UP_ARROW      &kp DOWN_ARROW    &kp RIGHT     &none           &none
-&none   &none   &msc SCRL_LEFT  &mkp MCLK       &msc SCRL_RIGHT  &mkp MCLK                   &none           &none             &none             &none         &none           &none
-                &trans          &trans                                                                                         &trans            &trans
-                                                &mkp LCLK        &mkp RCLK       &mkp MB5    &mkp MB5        &mkp RCLK         &mkp LCLK
-                                                &mkp LCLK        &mkp RCLK       &mkp MB4    &mkp MB4        &mkp RCLK         &mkp LCLK
+&trans  &trans  &trans          &trans          &trans           &trans                       &trans          &trans            &trans            &trans        &trans          &trans
+&trans  &trans  &trans          &trans          &trans           &trans                       &trans          &trans            &trans            &trans        &trans          &trans
+&none   &none   &mkp RCLK       &mmv MOVE_UP    &mkp LCLK        &msc SCRL_UP                 &none           &kp LEFT_COMMAND  &kp LEFT_CONTROL  &kp LEFT_ALT  &kp LEFT_SHIFT  &none
+&none   &none   &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &msc SCRL_DOWN               &kp LEFT_ARROW  &kp UP_ARROW      &kp DOWN_ARROW    &kp RIGHT     &none           &none
+&none   &none   &msc SCRL_LEFT  &mkp MCLK       &msc SCRL_RIGHT  &mkp MCLK                    &none           &none             &none             &none         &none           &none
+                &trans          &trans                                                                                          &trans            &trans
+                                                &mkp LCLK        &mkp LCLK       &mkp RCLK    &mkp MB5        &mkp RCLK         &mkp LCLK
+                                                &mkp LCLK        &mkp LCLK       &mkp RCLK    &mkp MB4        &mkp RCLK         &mkp LCLK
             >;
         };
 
@@ -205,11 +214,11 @@
 
 &trackball_peripheral_listener {
     input-processors =
-        // multiply sensitivity by 1, divide by 12 (make it slower for scrolling),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // multiply sensitivity by 1, divide by 12 (make it slower for scrolling),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_xy_scaler 1 16>,
-        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_xy_to_scroll_mapper>,
-        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>;
 };
 
@@ -217,6 +226,6 @@
 
 &trackball_central_listener {
     input-processors =
-        // activate mouse layer within 500 ms of the trackball moving ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // activate mouse layer within 500 ms of the trackball moving ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_temp_layer 5 500>;
 };
