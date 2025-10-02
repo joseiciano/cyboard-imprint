@@ -18,13 +18,13 @@
 
         to-colemakdh {
             bindings = <&to 2>;
-            key-positions = <60 63>;
+            key-positions = <61 62>;
             layers = <0>;
         };
 
         to-qwerty {
             bindings = <&to 0>;
-            key-positions = <60 63>;
+            key-positions = <61 62>;
         };
 
         capslock {
@@ -41,23 +41,18 @@
 
         Insert {
             bindings = <&kp INSERT>;
-            key-positions = <72 73>;
+            key-positions = <64 68>;
             layers = <0 2>;
         };
 
         toKeyboardControl {
             bindings = <&to 4>;
-            key-positions = <61 62>;
+            key-positions = <60 63>;
             layers = <0 2>;
         };
 
         tabbtn {
             bindings = <&kp TAB>;
-            key-positions = <70 75>;
-        };
-
-        mouse {
-            bindings = <&mo 5>;
             key-positions = <64 69>;
         };
     };
@@ -214,11 +209,11 @@
 
 &trackball_peripheral_listener {
     input-processors =
-        // multiply sensitivity by 1, divide by 12 (make it slower for scrolling),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // multiply sensitivity by 1, divide by 12 (make it slower for scrolling),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_xy_scaler 1 16>,
-        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_xy_to_scroll_mapper>,
-        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>;
 };
 
@@ -226,6 +221,6 @@
 
 &trackball_central_listener {
     input-processors =
-        // activate mouse layer within 500 ms of the trackball moving ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // activate mouse layer within 500 ms of the trackball moving ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_temp_layer 5 500>;
 };
