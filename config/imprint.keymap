@@ -143,7 +143,7 @@
 &trans  &trans                                 &trans                            &trans                                &trans                              &trans                                            &trans                 &trans                &trans                 &trans              &trans            &trans
 &trans  &trans                                 &trans                            &trans                                &trans                              &trans                                            &trans                 &trans                &trans                 &trans              &trans            &trans
 &none   &tap_long_press LCMD LEFT_PARENTHESIS  &Tap_Preferred_180ms LEFT_ALT N7  &Tap_Preferred_180ms LEFT_CONTROL N8  &Tap_Preferred_180ms LEFT_SHIFT N9  &mt PERIOD EQUAL                                  &move_tab_to_start     &kp LEFT_SHIFT        &kp LEFT_CONTROL       &kp LEFT_ALT        &kp LEFT_COMMAND  &none
-&none   &mt MINUS PLUS                         &kp N4                            &kp N5                                &kp N6                              &kp N0                                            &kp LS(LA(SEMICOLON))  &kp LEFT_ARROW        &kp UP_ARROW           &kp DOWN_ARROW      &kp RIGHT         &none
+&none   &mt MINUS PLUS                         &kp N4                            &kp N5                                &kp N6                              &kp N0                                            &kp LS(LA(SEMICOLON))  &kp LEFT_ARROW        &kp DOWN               &kp UP_ARROW        &kp RIGHT         &none
 &none   &mt KP_DIVIDE ASTERISK                 &kp N1                            &kp N2                                &kp N3                              &mt RIGHT_PARENTHESIS LEFT_PARENTHESIS            &move_tab_to_end       &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp LA(LEFT_SHIFT)  &none             &none
                                                &trans                            &trans                                                                                                                                                                   &trans                 &trans
                                                                                                                        &kp LEFT_ALT                        &kp LA(LEFT_SHIFT)                      &trans    &trans                 &kp LA(LEFT_SHIFT)    &kp LEFT_ALT
@@ -183,7 +183,7 @@
 &trans  &trans  &trans          &trans          &trans           &trans                       &trans            &trans          &trans        &trans          &trans           &trans
 &none   &none   &mkp RCLK       &mmv MOVE_UP    &mkp LCLK        &msc SCRL_UP                 &kp LCMD          &mkp LCLK       &mkp MCLK     &mkp RCLK       &kp LCMD         &none
 &none   &none   &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &msc SCRL_DOWN               &kp LEFT_CONTROL  &mmv MOVE_LEFT  &mmv MOVE_UP  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &none
-&none   &none   &msc SCRL_LEFT  &mkp MCLK       &msc SCRL_RIGHT  &mkp MCLK                    &kp LEFT_ALT      &kp LEFT_ARROW  &kp UP_ARROW  &kp DOWN_ARROW  &kp RIGHT        &none
+&none   &none   &msc SCRL_LEFT  &mkp MCLK       &msc SCRL_RIGHT  &mkp MCLK                    &kp LEFT_ALT      &kp LEFT_ARROW  &kp DOWN      &kp UP_ARROW    &kp RIGHT        &none
                 &trans          &trans                                                                                          &trans        &trans
                                                 &mkp LCLK        &mkp LCLK       &mkp RCLK    &mkp MB5          &mkp RCLK       &mkp LCLK
                                                 &mkp LCLK        &mkp LCLK       &mkp RCLK    &mkp MB4          &mkp RCLK       &mkp LCLK
@@ -209,11 +209,11 @@
 
 &trackball_peripheral_listener {
     input-processors =
-        // multiply sensitivity by 1, divide by 12 (make it slower for scrolling),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // multiply sensitivity by 1, divide by 12 (make it slower for scrolling),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_xy_scaler 1 16>,
-        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_xy_to_scroll_mapper>,
-        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>;
 };
 
@@ -221,6 +221,6 @@
 
 &trackball_central_listener {
     input-processors =
-        // activate mouse layer within 500 ms of the trackball moving ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // activate mouse layer within 500 ms of the trackball moving ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_temp_layer 5 500>;
 };
