@@ -94,6 +94,15 @@
             require-prior-idle-ms = <125>;
             flavor = "tap-preferred";
         };
+
+        tap_preferred_short: tap_preferred_short {
+            compatible = "zmk,behavior-hold-tap";
+            label = "TAP_PREFERRED_SHORT";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <180>;
+        };
     };
 
     macros {
@@ -119,7 +128,7 @@
             bindings = <
 &none      &none                   &none                            &none                                &none                              &none                    &none  &none                              &none                                &none                            &none                   &none
 &none      &none                   &none                            &none                                &none                              &none                    &none  &none                              &none                                &none                            &none                   &none
-&kp ESC    &tap_long_press LCMD Q  &Tap_Preferred_180ms LEFT_ALT W  &Tap_Preferred_180ms LEFT_CONTROL E  &Tap_Preferred_180ms LEFT_SHIFT R  &kp T                    &kp Y  &Tap_Preferred_180ms LEFT_SHIFT U  &Tap_Preferred_180ms LEFT_CONTROL I  &Tap_Preferred_180ms LEFT_ALT O  &tap_long_press LCMD P  &kp LC(A)
+&kp ESC    &tap_long_press LCMD Q  &Tap_Preferred_180ms LEFT_ALT W  &Tap_Preferred_180ms LEFT_CONTROL E  &tap_preferred_short LEFT_SHIFT R  &kp T                    &kp Y  &tap_preferred_short LEFT_SHIFT U  &Tap_Preferred_180ms LEFT_CONTROL I  &Tap_Preferred_180ms LEFT_ALT O  &tap_long_press LCMD P  &kp LC(A)
 &kp TAB    &kp A                   &kp S                            &kp D                                &kp F                              &kp G                    &kp H  &kp J                              &kp K                                &kp L                            &kp SEMI                &kp SQT
 &kp LSHFT  &kp Z                   &kp X                            &kp C                                &kp V                              &kp B                    &kp N  &kp M                              &kp COMMA                            &kp PERIOD                       &kp SLASH               &kp LEFT_CONTROL
                                    &kp LEFT_ALT                     &kp LC(A)                                                                                                                                  &kp LC(A)                            &kp LEFT_ALT
@@ -132,7 +141,7 @@
             bindings = <
 &none   &none                   &none                            &none                                &none                              &none             &none   &none                              &none                                &none                            &none                       &none
 &none   &none                   &none                            &none                                &none                              &none             &none   &none                              &none                                &none                            &none                       &none
-&trans  &tap_long_press LCMD Q  &Tap_Preferred_180ms LEFT_ALT W  &Tap_Preferred_180ms LEFT_CONTROL F  &Tap_Preferred_180ms LEFT_SHIFT P  &kp B             &kp J   &Tap_Preferred_180ms LEFT_SHIFT L  &Tap_Preferred_180ms LEFT_CONTROL U  &Tap_Preferred_180ms LEFT_ALT Y  &tap_long_press LCMD COLON  &trans
+&trans  &tap_long_press LCMD Q  &Tap_Preferred_180ms LEFT_ALT W  &Tap_Preferred_180ms LEFT_CONTROL F  &tap_preferred_short LEFT_SHIFT P  &kp B             &kp J   &tap_preferred_short LEFT_SHIFT L  &Tap_Preferred_180ms LEFT_CONTROL U  &Tap_Preferred_180ms LEFT_ALT Y  &tap_long_press LCMD COLON  &trans
 &trans  &kp A                   &kp R                            &kp S                                &kp T                              &kp G             &kp M   &kp N                              &kp E                                &kp I                            &kp O                       &trans
 &trans  &kp Z                   &kp X                            &kp C                                &kp D                              &kp V             &kp K   &kp H                              &kp COMMA                            &kp DOT                          &kp SLASH                   &trans
                                 &trans                           &trans                                                                                                                               &trans                               &trans
@@ -212,11 +221,11 @@
 
 &trackball_peripheral_listener {
     input-processors =
-        // multiply sensitivity by 1, divide by 12 (make it slower for scrolling),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // multiply sensitivity by 1, divide by 12 (make it slower for scrolling),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_xy_scaler 1 16>,
-        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_xy_to_scroll_mapper>,
-        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>;
 };
 
@@ -224,6 +233,6 @@
 
 &trackball_central_listener {
     input-processors =
-        // activate mouse layer within 500 ms of the trackball moving ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // activate mouse layer within 500 ms of the trackball moving ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_temp_layer 5 500>;
 };
