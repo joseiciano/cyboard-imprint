@@ -165,11 +165,11 @@
             bindings = <
 &none      &none                        &none                                 &none                                     &none                                   &none                      &none  &none                              &none                                &none                            &none                      &none
 &none      &none                        &none                                 &none                                     &none                                   &none                      &none  &none                              &none                                &none                            &none                      &none
-&kp ESC    &kp Q                        &kp W                                 &kp E                                     &kp R                                   &kp T                      &kp Y  &kp U                              &kp I                                &kp O                            &kp P                      &kp LC(A)
+&kp ESC    &kp Q                        &mt LC(A) W                           &tap_preferred_short_left BACKSPACE E     &tap_preferred_short_left ENTER R       &kp T                      &kp Y  &tap_preferred_short ENTER L       &tap_preferred_short BACKSPACE I     &mt LC(A) O                      &kp P                      &mt ENTER BACKSPACE
 &kp TAB    &tap_long_press_left LCMD A  &Tap_Preferred_180ms_Left LEFT_ALT S  &Tap_Preferred_180ms_Left LEFT_CONTROL D  &tap_preferred_short_left LEFT_SHIFT F  &kp G                      &kp H  &tap_preferred_short LEFT_SHIFT J  &Tap_Preferred_180ms LEFT_CONTROL K  &Tap_Preferred_180ms LEFT_ALT L  &tap_long_press LCMD SEMI  &kp SQT
 &kp LSHFT  &kp Z                        &kp X                                 &kp C                                     &kp V                                   &kp B                      &kp N  &kp M                              &kp COMMA                            &kp PERIOD                       &kp SLASH                  &kp LEFT_CONTROL
-                                        &kp LEFT_ALT                          &kp LC(A)                                                                                                                                              &kp LC(A)                            &kp LEFT_ALT
-                                                                                                                        &lt_tap_preferred 5 SPACE               &mt ESCAPE TAB  &kp TAB    &mo 5  &lt 3 ENTER                        &lt_tap_preferred 2 BACKSPACE
+                                        &kp ENTER                             &kp LC(A)                                                                                                                                              &kp LC(A)                            &kp ENTER
+                                                                                                                        &lt_tap_preferred 3 SPACE               &mt ESCAPE TAB  &kp TAB    &mo 5  &lt 3 ENTER                        &lt_tap_preferred 2 BACKSPACE
                                                                                                                         &lt_tap_preferred 4 TAB                 &none           &none      &none  &none                              &mo 5
             >;
         };
@@ -178,7 +178,7 @@
             bindings = <
 &none   &none                        &none                                 &none                                     &none                                   &none             &none   &none                              &none                                &none                            &none                   &none
 &none   &none                        &none                                 &none                                     &none                                   &none             &none   &none                              &none                                &none                            &none                   &none
-&trans  &kp Q                        &kp W                                 &kp F                                     &kp P                                   &kp B             &kp J   &kp L                              &kp U                                &kp Y                            &kp SEMI                &trans
+&trans  &kp Q                        &mt LC(A) W                           &tap_preferred_short_left BACKSPACE F     &tap_preferred_short_left ENTER P       &kp B             &kp J   &tap_preferred_short ENTER L       &tap_preferred_short BACKSPACE U     &mt LC(A) Y                      &kp SEMI                &trans
 &trans  &tap_long_press_left LCMD A  &Tap_Preferred_180ms_Left LEFT_ALT R  &Tap_Preferred_180ms_Left LEFT_CONTROL S  &tap_preferred_short_left LEFT_SHIFT T  &kp G             &kp M   &tap_preferred_short LEFT_SHIFT N  &Tap_Preferred_180ms LEFT_CONTROL E  &Tap_Preferred_180ms LEFT_ALT I  &tap_long_press LCMD O  &trans
 &trans  &kp Z                        &kp X                                 &kp C                                     &kp D                                   &kp V             &kp K   &kp H                              &kp COMMA                            &kp DOT                          &kp SLASH               &trans
                                      &trans                                &trans                                                                                                                                         &trans                               &trans
@@ -284,11 +284,11 @@
 
 &trackball_peripheral_listener {
     input-processors =
-        // multiply sensitivity by 1, divide by 12 (make it slower for scrolling),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // multiply sensitivity by 1, divide by 12 (make it slower for scrolling),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_xy_scaler 1 16>,
-        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_xy_to_scroll_mapper>,
-        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>;
 };
 
@@ -296,6 +296,6 @@
 
 &trackball_central_listener {
     input-processors =
-        // activate mouse layer within 500 ms of the trackball moving ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // activate mouse layer within 500 ms of the trackball moving ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_temp_layer 5 500>;
 };
