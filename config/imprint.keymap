@@ -58,12 +58,12 @@
 
         enterkey {
             bindings = <&kp ENTER>;
-            key-positions = <31 28>;
+            key-positions = <27 32>;
         };
 
         backspace {
             bindings = <&kp BACKSPACE>;
-            key-positions = <27 32>;
+            key-positions = <28 31>;
         };
 
         tab {
@@ -74,6 +74,11 @@
         esc {
             bindings = <&kp ESC>;
             key-positions = <25 34>;
+        };
+
+        leader {
+            bindings = <&kp LC(A)>;
+            key-positions = <29 30>;
         };
     };
 
@@ -185,7 +190,7 @@
             bindings = <
 &none      &none                        &none                                 &none                                     &none                                   &none                      &none  &none                              &none                                &none                            &none                      &none
 &none      &none                        &none                                 &none                                     &none                                   &none                      &none  &none                              &none                                &none                            &none                      &none
-&kp ESC    &kp Q                        &mt LC(A) W                           &kp E                                     &kp R                                   &kp T                      &kp Y  &kp U                              &kp I                                &mt LC(A) O                      &kp P                      &mt ENTER BACKSPACE
+&kp ESC    &kp Q                        &kp W                                 &kp E                                     &kp R                                   &kp T                      &kp Y  &kp U                              &kp I                                &kp O                            &kp P                      &mt ENTER BACKSPACE
 &kp TAB    &tap_long_press_left LCMD A  &Tap_Preferred_180ms_Left LEFT_ALT S  &Tap_Preferred_180ms_Left LEFT_CONTROL D  &tap_preferred_short_left LEFT_SHIFT F  &kp G                      &kp H  &tap_preferred_short LEFT_SHIFT J  &Tap_Preferred_180ms LEFT_CONTROL K  &Tap_Preferred_180ms LEFT_ALT L  &tap_long_press LCMD SEMI  &kp SQT
 &kp LSHFT  &kp Z                        &kp X                                 &kp C                                     &kp V                                   &kp B                      &kp N  &kp M                              &kp COMMA                            &kp PERIOD                       &kp SLASH                  &kp LEFT_CONTROL
                                         &kp ENTER                             &kp LC(A)                                                                                                                                              &kp LC(A)                            &kp ENTER
@@ -198,7 +203,7 @@
             bindings = <
 &none   &none                        &none                                 &none                                     &none                                   &none             &none   &none                              &none                                &none                            &none                   &none
 &none   &none                        &none                                 &none                                     &none                                   &none             &none   &none                              &none                                &none                            &none                   &none
-&trans  &kp Q                        &mt LC(A) W                           &kp F                                     &kp P                                   &kp B             &kp J   &kp L                              &kp U                                &mt LC(A) Y                      &kp SEMI                &trans
+&trans  &kp Q                        &kp W                                 &kp F                                     &kp P                                   &kp B             &kp J   &kp L                              &kp U                                &kp Y                            &kp SEMI                &trans
 &trans  &tap_long_press_left LCMD A  &Tap_Preferred_180ms_Left LEFT_ALT R  &Tap_Preferred_180ms_Left LEFT_CONTROL S  &tap_preferred_short_left LEFT_SHIFT T  &kp G             &kp M   &tap_preferred_short LEFT_SHIFT N  &Tap_Preferred_180ms LEFT_CONTROL E  &Tap_Preferred_180ms LEFT_ALT I  &tap_long_press LCMD O  &trans
 &trans  &kp Z                        &kp X                                 &kp C                                     &kp D                                   &kp V             &kp K   &kp H                              &kp COMMA                            &kp DOT                          &kp SLASH               &trans
                                      &trans                                &trans                                                                                                                                         &trans                               &trans
@@ -304,11 +309,11 @@
 
 &trackball_peripheral_listener {
     input-processors =
-        // multiply sensitivity by 1, divide by 12 (make it slower for scrolling),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // multiply sensitivity by 1, divide by 12 (make it slower for scrolling),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_xy_scaler 1 16>,
-        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_xy_to_scroll_mapper>,
-        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>;
 };
 
@@ -316,6 +321,6 @@
 
 &trackball_central_listener {
     input-processors =
-        // activate mouse layer within 500 ms of the trackball moving ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // activate mouse layer within 500 ms of the trackball moving ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_temp_layer 5 500>;
 };
