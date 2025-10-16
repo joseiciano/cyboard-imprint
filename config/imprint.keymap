@@ -140,6 +140,17 @@
             flavor = "tap-preferred";
             hold-trigger-key-positions = <30 31 32 33 34 35 42 43 44 45 46 47 54 55 56 57 58 59 62 63 64 65 66 67 68 69 70 71 72 73 74 75 26 29 28 50 51 52>;
         };
+
+        long_press_macro: long_press_macro {
+            compatible = "zmk,behavior-hold-tap";
+            label = "LONG_PRESS_MACRO";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <250>;
+            flavor = "tap-preferred";
+            require-prior-idle-ms = <80>;
+        };
     };
 
     macros {
@@ -165,7 +176,7 @@
             bindings = <
 &none      &none                        &none                                 &none                                     &none                                   &none                      &none  &none                              &none                                &none                            &none                      &none
 &none      &none                        &none                                 &none                                     &none                                   &none                      &none  &none                              &none                                &none                            &none                      &none
-&kp ESC    &kp Q                        &kp W                                 &kp E                                     &kp R                                   &kp T                      &kp Y  &kp U                              &kp I                                &kp O                            &kp P                      &kp BACKSPACE
+&kp ESC    &kp Q                        &long_press_macro LG(LEFT_ARROW) W    &long_press_macro LG(A) E                 &long_press_macro LG(RIGHT) R           &kp T                      &kp Y  &long_press_macro LG(LEFT) U       &long_press_macro LG(A) I            &long_press_macro RIGHT O        &kp P                      &kp BACKSPACE
 &kp TAB    &tap_long_press_left LCMD A  &Tap_Preferred_180ms_Left LEFT_ALT S  &Tap_Preferred_180ms_Left LEFT_CONTROL D  &tap_preferred_short_left LEFT_SHIFT F  &kp G                      &kp H  &tap_preferred_short LEFT_SHIFT J  &Tap_Preferred_180ms LEFT_CONTROL K  &Tap_Preferred_180ms LEFT_ALT L  &tap_long_press LCMD SEMI  &kp ENTER
 &kp LSHFT  &kp Z                        &kp X                                 &kp C                                     &kp V                                   &kp B                      &kp N  &kp M                              &kp COMMA                            &kp PERIOD                       &kp SLASH                  &kp SQT
                                         &lt_tap_preferred 3 LC(A)             &lt_tap_preferred 2 LC(A)                                                                                                                              &lt_tap_preferred 2 LC(A)            &lt_tap_preferred 3 LC(A)
@@ -284,11 +295,11 @@
 
 &trackball_peripheral_listener {
     input-processors =
-        // multiply sensitivity by 1, divide by 12 (make it slower for scrolling),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // multiply sensitivity by 1, divide by 12 (make it slower for scrolling),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_xy_scaler 1 16>,
-        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_xy_to_scroll_mapper>,
-        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>;
 };
 
@@ -296,6 +307,6 @@
 
 &trackball_central_listener {
     input-processors =
-        // activate mouse layer within 500 ms of the trackball moving ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // activate mouse layer within 500 ms of the trackball moving ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_temp_layer 5 500>;
 };
