@@ -202,8 +202,8 @@
             bindings = <
 &trans  &trans                          &trans                                       &trans                                              &trans                                            &trans                                            &trans                 &trans                             &trans                               &trans                           &trans                  &trans
 &trans  &trans                          &trans                                       &trans                                              &trans                                            &trans                                            &trans                 &trans                             &trans                               &trans                           &trans                  &trans
-&none   &kp MINUS                       &kp N7                                       &kp N8                                              &kp N9                                            &mt PERIOD EQUAL                                  &kp LC(A)              &kp LG(LEFT)                       &kp LG(LC(D))                        &kp LG(U)                        &kp LG(RIGHT)           &none
-&none   &tap_long_press_left LCMD PLUS  &Tap_Preferred_180ms_Left LEFT_ALT NUMBER_4  &Tap_Preferred_180ms_Left LEFT_CONTROL KP_NUMBER_5  &tap_preferred_short_left LEFT_SHIFT KP_NUMBER_6  &kp N0                                            &kp LS(LA(SEMICOLON))  &tap_preferred_short LEFT_SHIFT H  &Tap_Preferred_180ms LEFT_CONTROL J  &Tap_Preferred_180ms LEFT_ALT K  &tap_long_press LCMD L  &none
+&none   &kp MINUS                       &kp N7                                       &kp N8                                              &kp N9                                            &mt PERIOD EQUAL                                  &kp LC(A)              &kp LG(LEFT)                       &kp LC(D)                            &kp LC(U)                        &kp LG(RIGHT)           &kp U
+&none   &tap_long_press_left LCMD PLUS  &Tap_Preferred_180ms_Left LEFT_ALT NUMBER_4  &Tap_Preferred_180ms_Left LEFT_CONTROL KP_NUMBER_5  &tap_preferred_short_left LEFT_SHIFT KP_NUMBER_6  &kp N0                                            &kp LS(LA(SEMICOLON))  &tap_preferred_short LEFT_SHIFT H  &Tap_Preferred_180ms LEFT_CONTROL J  &Tap_Preferred_180ms LEFT_ALT K  &tap_long_press LCMD L  &kp D
 &none   &mt KP_DIVIDE ASTERISK          &kp N1                                       &kp N2                                              &kp N3                                            &mt RIGHT_PARENTHESIS LEFT_PARENTHESIS            &move_tab_to_end       &kp LEFT_PARENTHESIS               &kp RIGHT_BRACE                      &kp LEFT_BRACE                   &kp RIGHT_PARENTHESIS   &none
                                         &trans                                       &trans                                                                                                                                                                                                            &trans                               &trans
                                                                                                                                          &kp LEFT_ALT                                      &kp LA(LEFT_SHIFT)                      &trans    &trans                 &kp LA(LEFT_SHIFT)                 &kp LEFT_ALT
@@ -295,11 +295,11 @@
 
 &trackball_peripheral_listener {
     input-processors =
-        // multiply sensitivity by 1, divide by 12 (make it slower for scrolling),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // multiply sensitivity by 1, divide by 12 (make it slower for scrolling),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_xy_scaler 1 16>,
-        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_xy_to_scroll_mapper>,
-        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>;
 };
 
@@ -307,6 +307,6 @@
 
 &trackball_central_listener {
     input-processors =
-        // activate mouse layer within 500 ms of the trackball moving ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // activate mouse layer within 500 ms of the trackball moving ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_temp_layer 5 500>;
 };
