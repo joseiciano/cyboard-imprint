@@ -209,16 +209,16 @@
             >;
         };
 
-        gallium {
+        enthium {
             bindings = <
-&none       &none                        &none                                 &none                                     &none                                   &none                    &none  &none                              &none                                &none                            &none                   &none
-&none       &none                        &none                                 &none                                     &none                                   &none                    &none  &none                              &none                                &none                            &none                   &none
-&kp ESCAPE  &kp B                        &long_press_macro LG(LEFT_ARROW) L    &long_press_macro LG(A) D                 &long_press_macro LG(RIGHT) C           &kp V                    &kp Z  &long_press_macro LG(LEFT) Y       &long_press_macro LG(A) O            &long_press_macro RIGHT U        &kp SEMICOLON           &kp TAB
-&kp TAB     &tap_long_press_left LCMD N  &Tap_Preferred_180ms_Left LEFT_ALT R  &Tap_Preferred_180ms_Left LEFT_CONTROL T  &tap_preferred_short_left LEFT_SHIFT S  &kp G                    &kp P  &tap_preferred_short LEFT_SHIFT H  &Tap_Preferred_180ms LEFT_CONTROL A  &Tap_Preferred_180ms LEFT_ALT E  &tap_long_press LCMD I  &kp SLASH
-&kp LSHFT   &kp Q                        &Tap_Preferred_180ms_Left LG(Z) X     &Tap_Preferred_180ms_Left LG(X) M         &Tap_Preferred_180ms_Left LG(C) W       &kp J                    &kp K  &kp F                              &kp PERIOD                           &kp COMMA                        &kp MINUS               &kp SQT
-                                         &lt_tap_preferred 3 LC(A)             &lt_tap_preferred 2 LC(A)                                                                                                                            &lt_tap_preferred 2 LC(A)            &lt_tap_preferred 3 LC(A)
-                                                                                                                         &lt_tap_preferred 3 SPACE               &kp ESCAPE    &kp TAB    &mo 5  &lt 5 ENTER                        &lt_tap_preferred 2 BACKSPACE
-                                                                                                                         &caps_word                              &kp CAPSLOCK  &mo 4      &mo 4  &mo 5                              &mo 5
+&none       &none                        &none                                  &none                                     &none                                   &none                    &none  &none                              &none                                &none                            &none                   &none
+&none       &none                        &none                                  &none                                     &none                                   &none                    &none  &none                              &none                                &none                            &none                   &none
+&kp ESCAPE  &kp SEMICOLON                &long_press_macro LG(LEFT_ARROW) Y     &long_press_macro LG(A) U                 &long_press_macro LG(RIGHT) O           &kp MINUS                &kp Q  &long_press_macro LG(LEFT) L       &long_press_macro LG(A) D            &long_press_macro RIGHT P        &kp X                   &kp TAB
+&kp W       &tap_long_press_left LCMD C  &Tap_Preferred_180ms_Left LEFT_ALT I   &Tap_Preferred_180ms_Left LEFT_CONTROL E  &tap_preferred_short_left LEFT_SHIFT A  &kp SLASH                &kp K  &tap_preferred_short LEFT_SHIFT H  &Tap_Preferred_180ms LEFT_CONTROL T  &Tap_Preferred_180ms LEFT_ALT N  &tap_long_press LCMD S  &kp F
+&kp LSHFT   &kp Z                        &Tap_Preferred_180ms_Left LG(Z) EQUAL  &Tap_Preferred_180ms_Left LG(X) COMMA     &Tap_Preferred_180ms_Left LG(C) PERIOD  &kp MINUS                &kp J  &kp M                              &kp G                                &kp B                            &kp V                   &kp SQT
+                                         &lt_tap_preferred 3 LC(A)              &lt_tap_preferred 2 LC(A)                                                                                                                            &lt_tap_preferred 2 LC(A)            &lt_tap_preferred 3 LC(A)
+                                                                                                                          &lt_tap_preferred 3 SPACE               &kp ESCAPE    &kp TAB    &mo 5  &lt 5 ENTER                        &lt_tap_preferred 2 BACKSPACE
+                                                                                                                          &caps_word                              &kp CAPSLOCK  &mo 4      &mo 4  &mo 5                              &mo 5
             >;
         };
 
@@ -326,7 +326,7 @@
             >;
         };
 
-        engram {
+        cloud {
             bindings = <
 &none       &none                        &none                                 &none                                     &none                                   &none                            &none       &none                              &none                                &none                            &none                   &none
 &none       &none                        &none                                 &none                                     &none                                   &none                            &none       &none                              &none                                &none                            &none                   &none
@@ -345,11 +345,11 @@
 
 &trackball_peripheral_listener {
     input-processors =
-        // multiply sensitivity by 1, divide by 12 (make it slower for scrolling),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // multiply sensitivity by 1, divide by 12 (make it slower for scrolling),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_xy_scaler 1 16>,
-        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_xy_to_scroll_mapper>,
-        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>;
 };
 
@@ -357,6 +357,6 @@
 
 &trackball_central_listener {
     input-processors =
-        // activate mouse layer within 500 ms of the trackball moving ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // activate mouse layer within 500 ms of the trackball moving ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_temp_layer 5 500>;
 };
