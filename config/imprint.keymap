@@ -35,13 +35,13 @@
 
         Delete {
             bindings = <&kp DELETE>;
-            key-positions = <65 68>;
+            key-positions = <26 33>;
             layers = <1 9>;
         };
 
         Insert {
             bindings = <&kp INSERT>;
-            key-positions = <64 69>;
+            key-positions = <32 27>;
             layers = <1 9>;
         };
 
@@ -57,27 +57,37 @@
 
         esc {
             bindings = <&kp ESCAPE>;
-            key-positions = <26 27 33 32>;
+            key-positions = <27 28>;
         };
 
-        backspace-left {
-            bindings = <&kp BACKSPACE>;
-            key-positions = <26 27 28>;
+        tap-left {
+            bindings = <&kp TAB>;
+            key-positions = <26 27>;
         };
 
         enter-left {
             bindings = <&kp ENTER>;
-            key-positions = <26 28>;
+            key-positions = <39 40>;
         };
 
         enter-right {
             bindings = <&kp ENTER>;
-            key-positions = <31 33>;
+            key-positions = <44 43>;
         };
 
         backspace-right {
             bindings = <&kp BACKSPACE>;
-            key-positions = <31 32 33>;
+            key-positions = <44 45>;
+        };
+
+        to-cloud {
+            bindings = <&to 10>;
+            key-positions = <60 63>;
+        };
+
+        tab-right {
+            bindings = <&kp TAB>;
+            key-positions = <32 33>;
         };
     };
 
@@ -328,14 +338,14 @@
 
         cloud {
             bindings = <
-&none       &none                        &none                                 &none                                     &none                                   &none                            &none       &none                              &none                                &none                            &none                   &none
-&none       &none                        &none                                 &none                                     &none                                   &none                            &none       &none                              &none                                &none                            &none                   &none
-&kp ESCAPE  &kp B                        &long_press_macro LG(LEFT_ARROW) Y    &long_press_macro LG(A) O                 &long_press_macro LG(RIGHT) U           &kp LEFT_PARENTHESIS             &kp Z       &long_press_macro LG(LEFT) Y       &long_press_macro LG(A) O            &long_press_macro RIGHT P        &kp SEMICOLON           &kp TAB
-&kp TAB     &tap_long_press_left LCMD C  &Tap_Preferred_180ms_Left LEFT_ALT I  &Tap_Preferred_180ms_Left LEFT_CONTROL E  &tap_preferred_short_left LEFT_SHIFT A  &kp SEMICOLON                    &kp PERIOD  &tap_preferred_short LEFT_SHIFT H  &Tap_Preferred_180ms LEFT_CONTROL A  &Tap_Preferred_180ms LEFT_ALT E  &tap_long_press LCMD I  &kp Q
-&kp LSHFT   &kp G                        &Tap_Preferred_180ms_Left LG(Z) X     &Tap_Preferred_180ms_Left LG(X) J         &Tap_Preferred_180ms_Left LG(C) K       &kp MINUS                        &kp K       &kp F                              &kp COMMA                            &kp PERIOD                       &kp MINUS               &kp SQT
-                                         &lt_tap_preferred 3 LC(A)             &lt_tap_preferred 2 LC(A)                                                                                                                                         &kp Z                                &kp Q
-                                                                                                                         &lt_tap_preferred 3 SPACE               &kp ESCAPE            &kp TAB    &mo 5       &lt 5 ENTER                        &lt_tap_preferred 2 BACKSPACE
-                                                                                                                         &caps_word                              &kp CAPSLOCK          &mo 4      &mo 4       &mo 5                              &mo 5
+&none       &none                        &none                                  &none                                     &none                                   &none                    &none  &none                              &none                                &none                            &none                   &none
+&none       &none                        &none                                  &none                                     &none                                   &none                    &none  &none                              &none                                &none                            &none                   &none
+&kp ESCAPE  &kp Q                        &long_press_macro LG(LEFT_ARROW) O     &long_press_macro LG(A) U                 &long_press_macro LG(RIGHT) B           &kp J                    &kp Z  &long_press_macro LG(LEFT) F       &long_press_macro LG(A) L            &long_press_macro RIGHT C        &kp W                   &kp TAB
+&kp TAB     &tap_long_press_left LCMD I  &Tap_Preferred_180ms_Left LEFT_ALT A   &Tap_Preferred_180ms_Left LEFT_CONTROL E  &tap_preferred_short_left LEFT_SHIFT N  &kp Y                    &kp M  &tap_preferred_short LEFT_SHIFT H  &Tap_Preferred_180ms LEFT_CONTROL T  &Tap_Preferred_180ms LEFT_ALT S  &tap_long_press LCMD R  &kp ENTER
+&kp LSHFT   &kp SLASH                    &Tap_Preferred_180ms_Left LG(Z) COMMA  &Tap_Preferred_180ms_Left LG(X) PERIOD    &Tap_Preferred_180ms_Left LG(C) K       &kp MINUS                &kp K  &kp D                              &kp G                                &kp X                            &kp V                   &kp SQT
+                                         &lt_tap_preferred 3 LC(A)              &lt_tap_preferred 2 LC(A)                                                                                                                            &kp Z                                &kp Q
+                                                                                                                          &lt_tap_preferred 3 SPACE               &kp ESCAPE    &kp TAB    &mo 5  &lt 5 ENTER                        &lt_tap_preferred 2 BACKSPACE
+                                                                                                                          &caps_word                              &kp CAPSLOCK  &mo 4      &mo 4  &mo 5                              &mo 5
             >;
         };
     };
@@ -345,11 +355,11 @@
 
 &trackball_peripheral_listener {
     input-processors =
-        // multiply sensitivity by 1, divide by 12 (make it slower for scrolling),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // multiply sensitivity by 1, divide by 12 (make it slower for scrolling),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_xy_scaler 1 16>,
-        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_xy_to_scroll_mapper>,
-        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>;
 };
 
@@ -357,6 +367,6 @@
 
 &trackball_central_listener {
     input-processors =
-        // activate mouse layer within 500 ms of the trackball moving ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // activate mouse layer within 500 ms of the trackball moving ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_temp_layer 5 500>;
 };
