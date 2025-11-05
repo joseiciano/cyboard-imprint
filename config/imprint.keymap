@@ -52,77 +52,47 @@
 
         backspace {
             bindings = <&kp BACKSPACE>;
-            key-positions = <38 39>;
+            key-positions = <39 40 44 43>;
         };
 
         esc {
             bindings = <&kp ESCAPE>;
-            key-positions = <27 28>;
+            key-positions = <27 28 31 32>;
         };
 
-        tap-left {
+        tab {
             bindings = <&kp TAB>;
-            key-positions = <26 27>;
+            key-positions = <26 27 32 33>;
         };
 
-        enter-left {
+        enter {
             bindings = <&kp ENTER>;
-            key-positions = <39 40>;
-        };
-
-        enter-right {
-            bindings = <&kp ENTER>;
-            key-positions = <44 43>;
-        };
-
-        backspace-right {
-            bindings = <&kp BACKSPACE>;
-            key-positions = <44 45>;
-        };
-
-        tab-right {
-            bindings = <&kp TAB>;
-            key-positions = <32 33>;
-        };
-
-        esc-right {
-            bindings = <&kp ESCAPE>;
-            key-positions = <32 31>;
-        };
-
-        backspace-left2 {
-            bindings = <&kp BACKSPACE>;
-            key-positions = <37 40>;
-        };
-
-        backspace-right2 {
-            bindings = <&kp BACKSPACE>;
-            key-positions = <43 46>;
+            key-positions = <44 38 39 45>;
         };
 
         colon {
             bindings = <&kp COLON>;
-            key-positions = <37 46>;
+            key-positions = <27 32>;
         };
 
         slash {
             bindings = <&kp SLASH>;
-            key-positions = <43 40>;
+            key-positions = <31 28>;
         };
 
         semicolon {
             bindings = <&kp SEMI>;
-            key-positions = <44 39>;
+            key-positions = <25 34>;
         };
 
         v {
             bindings = <&kp V>;
-            key-positions = <26 33>;
+            key-positions = <27 31>;
         };
 
         shift-v {
             bindings = <&kp LS(V)>;
-            key-positions = <27 32>;
+            key-positions = <27 33>;
         };
 
         f {
@@ -135,9 +105,14 @@
             key-positions = <38 45>;
         };
 
-        w-vim {
+        w {
             bindings = <&kp W>;
-            key-positions = <26 28>;
+            key-positions = <28 32>;
+        };
+
+        t {
+            bindings = <&kp T>;
+            key-positions = <28 33>;
         };
     };
 
@@ -269,7 +244,7 @@
 &none      &none                        &none                                 &none                                     &none                                   &none                                            &none  &none                              &none                                &none                            &none                      &none
 &kp ESC    &kp Q                        &long_press_macro LG(LEFT_ARROW) W    &long_press_macro LG(A) E                 &long_press_macro LG(RIGHT) R           &kp T                                            &kp Y  &long_press_macro LG(LEFT) U       &long_press_macro LG(A) I            &long_press_macro RIGHT O        &kp P                      &kp BACKSPACE
 &kp TAB    &tap_long_press_left LCMD A  &Tap_Preferred_180ms_Left LEFT_ALT S  &Tap_Preferred_180ms_Left LEFT_CONTROL D  &tap_preferred_short_left LEFT_SHIFT F  &kp G                                            &kp H  &tap_preferred_short LEFT_SHIFT J  &Tap_Preferred_180ms LEFT_CONTROL K  &Tap_Preferred_180ms LEFT_ALT L  &tap_long_press LCMD SEMI  &kp ENTER
-&kp LSHFT  &kp Z                        &kp X                                 &kp C                                     &kp V                                   &kp B                                            &kp N  &kp M                              &kp COMMA                            &kp PERIOD                       &kp SLASH                  &kp SQT
+&kp LSHFT  &kp Z                        &Tap_Preferred_180ms_Left LG(Z) X     &Tap_Preferred_180ms_Left LG(X) C         &Tap_Preferred_180ms_Left LG(C) V       &kp B                                            &kp N  &Tap_Preferred_180ms LG(V) M       &kp COMMA                            &kp PERIOD                       &kp SLASH                  &kp SQT
                                         &lt_tap_preferred 3 LC(A)             &lt_tap_preferred 2 LC(A)                                                                                                                                                    &lt_tap_preferred 2 LC(A)            &lt_tap_preferred 3 LC(A)
                                                                                                                         &lt_tap_preferred 3 SPACE               &tap_preferred_short_left ESCAPE TAB  &kp TAB    &mo 5  &lt 5 ENTER                        &lt_tap_preferred 2 BACKSPACE
                                                                                                                         &caps_word                              &kp CAPSLOCK                          &mo 4      &mo 4  &mo 5                              &mo 5
@@ -278,14 +253,14 @@
 
         ringless-no-right {
             bindings = <
-&none       &none                        &none                                 &none                                     &none                                   &none                    &none  &none                              &none                                &none                            &none                &none
-&none       &none                        &none                                 &none                                     &none                                   &none                    &none  &none                              &none                                &none                            &none                &none
-&kp ESCAPE  &kp PERIOD                   &long_press_macro LG(LEFT_ARROW) U    &long_press_macro LG(A) O                 &long_press_macro LG(RIGHT) L           &kp J                    &kp V  &long_press_macro LG(LEFT) C       &long_press_macro LG(A) D            &long_press_macro RIGHT P        &kp B                &kp TAB
-&kp TAB     &tap_long_press_left LCMD I  &Tap_Preferred_180ms_Left LEFT_ALT E  &Tap_Preferred_180ms_Left LEFT_CONTROL A  &tap_preferred_short_left LEFT_SHIFT R  &kp G                    &kp F  &tap_preferred_short LEFT_SHIFT S  &Tap_Preferred_180ms LEFT_CONTROL T  &Tap_Preferred_180ms LEFT_ALT Y  &tap_long_press I N  &kp ENTER
-&kp LSHFT   &kp COMMA                    &Tap_Preferred_180ms_Left LG(Z) SEMI  &Tap_Preferred_180ms_Left LG(X) SQT       &Tap_Preferred_180ms_Left LG(C) H       &kp Q                    &kp Z  &Tap_Preferred_180ms LG(V) W       &kp M                                &kp K                            &kp X                &kp SQT
-                                         &lt_tap_preferred 3 LC(A)             &lt_tap_preferred 2 LC(A)                                                                                                                            &kp Z                                &kp Q
-                                                                                                                         &lt_tap_preferred 3 SPACE               &kp ESCAPE    &kp TAB    &mo 5  &lt 5 ENTER                        &lt_tap_preferred 2 BACKSPACE
-                                                                                                                         &caps_word                              &kp CAPSLOCK  &mo 4      &mo 4  &mo 5                              &mo 5
+&none       &none                        &none                                 &none                                     &none                                   &none                                  &none  &none                              &none                                &none                            &none                &none
+&none       &none                        &none                                 &none                                     &none                                   &none                                  &none  &none                              &none                                &none                            &none                &none
+&kp ESCAPE  &kp PERIOD                   &long_press_macro LG(LEFT_ARROW) U    &long_press_macro LG(A) O                 &long_press_macro LG(RIGHT) L           &kp J                                  &kp V  &long_press_macro LG(LEFT) C       &long_press_macro LG(A) D            &long_press_macro RIGHT P        &kp B                &kp BACKSPACE
+&kp TAB     &tap_long_press_left LCMD I  &Tap_Preferred_180ms_Left LEFT_ALT E  &Tap_Preferred_180ms_Left LEFT_CONTROL A  &tap_preferred_short_left LEFT_SHIFT R  &kp G                                  &kp F  &tap_preferred_short LEFT_SHIFT S  &Tap_Preferred_180ms LEFT_CONTROL T  &Tap_Preferred_180ms LEFT_ALT Y  &tap_long_press I N  &kp ENTER
+&kp LSHFT   &kp COMMA                    &Tap_Preferred_180ms_Left LG(Z) SEMI  &Tap_Preferred_180ms_Left LG(X) SQT       &Tap_Preferred_180ms_Left LG(C) H       &kp Q                                  &kp Z  &Tap_Preferred_180ms LG(V) W       &kp M                                &kp K                            &kp X                &kp SQT
+                                         &lt_tap_preferred 3 LC(A)             &lt_tap_preferred 2 LC(A)                                                                                                                                          &kp Z                                &kp Q
+                                                                                                                         &lt_tap_preferred 3 SPACE               &lt_tap_preferred 2 ESCAPE  &kp TAB    &mo 5  &lt 5 ENTER                        &kp BACKSPACE
+                                                                                                                         &caps_word                              &kp CAPSLOCK                &mo 4      &mo 4  &mo 5                              &mo 5
             >;
         };
 
@@ -386,11 +361,11 @@
 
 &trackball_peripheral_listener {
     input-processors =
-        // multiply sensitivity by 1, divide by 12 (make it slower for scrolling),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // multiply sensitivity by 1, divide by 12 (make it slower for scrolling),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_xy_scaler 1 16>,
-        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_xy_to_scroll_mapper>,
-        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>;
 };
 
@@ -398,6 +373,6 @@
 
 &trackball_central_listener {
     input-processors =
-        // activate mouse layer within 500 ms of the trackball moving ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // activate mouse layer within 500 ms of the trackball moving ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_temp_layer 5 500>;
 };
