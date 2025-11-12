@@ -27,24 +27,6 @@
             key-positions = <61 62>;
         };
 
-        capslock {
-            bindings = <&caps_word>;
-            key-positions = <28 31 27 32>;
-            layers = <1 6>;
-        };
-
-        Delete {
-            bindings = <&kp DELETE>;
-            key-positions = <26 33>;
-            layers = <1>;
-        };
-
-        Insert {
-            bindings = <&kp INSERT>;
-            key-positions = <32 27>;
-            layers = <1>;
-        };
-
         toKeyboardControl {
             bindings = <&to 4>;
             key-positions = <35 24>;
@@ -52,7 +34,8 @@
 
         backspace {
             bindings = <&kp BACKSPACE>;
-            key-positions = <39 40 44 43>;
+            key-positions = <51 52>;
+            require-prior-idle-ms = <500>;
         };
 
         esc {
@@ -67,56 +50,40 @@
 
         enter {
             bindings = <&kp ENTER>;
-            key-positions = <44 38 39 45>;
+            key-positions = <51 50>;
+            require-prior-idle-ms = <500>;
         };
 
         colon {
             bindings = <&kp COLON>;
             key-positions = <27 32>;
+            require-prior-idle-ms = <500>;
         };
 
         slash {
             bindings = <&kp SLASH>;
             key-positions = <31 28>;
+            require-prior-idle-ms = <500>;
         };
 
         semicolon {
             bindings = <&kp SEMI>;
             key-positions = <25 34>;
-        };
-
-        v {
-            bindings = <&kp V>;
-            key-positions = <27 31>;
-        };
-
-        shift-v {
-            bindings = <&kp LS(V)>;
-            key-positions = <27 33>;
-        };
-
-        f {
-            bindings = <&kp F>;
-            key-positions = <28 31>;
+            require-prior-idle-ms = <500>;
         };
 
         type_func {
             bindings = <&type_function>;
-            key-positions = <38 45>;
-        };
-
-        w {
-            bindings = <&kp W>;
-            key-positions = <28 32>;
-        };
-
-        t {
-            bindings = <&kp T>;
-            key-positions = <28 33>;
+            key-positions = <64 68>;
         };
 
         vim {
             bindings = <&mo 9>;
+            key-positions = <65 68>;
+        };
+
+        number_layer {
+            bindings = <&mo 2>;
             key-positions = <64 69>;
         };
     };
@@ -379,11 +346,11 @@
 
 &trackball_peripheral_listener {
     input-processors =
-        // multiply sensitivity by 1, divide by 12 (make it slower for scrolling),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // multiply sensitivity by 1, divide by 12 (make it slower for scrolling),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_xy_scaler 1 16>,
-        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_xy_to_scroll_mapper>,
-        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>;
 };
 
@@ -391,6 +358,6 @@
 
 &trackball_central_listener {
     input-processors =
-        // activate mouse layer within 500 ms of the trackball moving ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // activate mouse layer within 500 ms of the trackball moving ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_temp_layer 5 500>;
 };
