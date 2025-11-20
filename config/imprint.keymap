@@ -344,14 +344,14 @@
 
         vim {
             bindings = <
-&trans  &trans                &trans  &trans  &trans                                  &trans            &trans  &trans                                 &trans  &trans  &trans        &trans
-&trans  &trans                &trans  &trans  &trans                                  &trans            &trans  &trans                                 &trans  &trans  &trans        &trans
-&trans  &kp LEFT_PARENTHESIS  &kp Y   &kp V   &kp RIGHT_PARENTHESIS                   &trans            &trans  &kp S                                  &kp D   &kp U   &trans        &trans
-&trans  &kp C                 &kp I   &kp A   &tap_preferred_short_left LEFT_SHIFT W  &kp X             &trans  &tap_preferred_short LEFT_SHIFT SLASH  &kp N   &kp P   &kp QUESTION  &trans
-&trans  &trans                &trans  &trans  &trans                                  &trans            &trans  &trans                                 &kp F   &kp T   &trans        &trans
-                              &trans  &trans                                                                                                           &trans  &trans
-                                              &trans                                  &trans  &trans    &trans  &trans                                 &trans
-                                              &trans                                  &trans  &trans    &trans  &trans                                 &trans
+&trans  &trans                &trans  &trans               &trans                                  &trans            &trans  &trans                                 &trans  &trans  &trans        &trans
+&trans  &trans                &trans  &trans               &trans                                  &trans            &trans  &trans                                 &trans  &trans  &trans        &trans
+&trans  &kp LEFT_PARENTHESIS  &kp Y   &kp V                &kp RIGHT_PARENTHESIS                   &trans            &trans  &kp S                                  &kp D   &kp U   &trans        &trans
+&trans  &kp C                 &kp I   &kp A                &tap_preferred_short_left LEFT_SHIFT W  &kp X             &trans  &tap_preferred_short LEFT_SHIFT SLASH  &kp N   &kp P   &kp QUESTION  &trans
+&trans  &trans                &trans  &trans_and_go_layer  &trans                                  &trans            &trans  &trans                                 &kp F   &kp T   &trans        &trans
+                              &trans  &trans                                                                                                                        &trans  &trans
+                                                           &trans                                  &trans  &trans    &trans  &trans                                 &trans
+                                                           &trans                                  &trans  &trans    &trans  &trans                                 &trans
             >;
         };
     };
@@ -361,11 +361,11 @@
 
 &trackball_peripheral_listener {
     input-processors =
-        // multiply sensitivity by 1, divide by 12 (make it slower for scrolling),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // multiply sensitivity by 1, divide by 12 (make it slower for scrolling),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_xy_scaler 1 16>,
-        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_xy_to_scroll_mapper>,
-        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>;
 };
 
@@ -373,6 +373,6 @@
 
 &trackball_central_listener {
     input-processors =
-        // activate mouse layer within 500 ms of the trackball moving ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // activate mouse layer within 500 ms of the trackball moving ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_temp_layer 5 500>;
 };
