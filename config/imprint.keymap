@@ -200,6 +200,18 @@
             tapping-term-ms = <100>;
             flavor = "tap-preferred";
         };
+
+        macro_preferred_short: macro_preferred_short {
+            compatible = "zmk,behavior-hold-tap";
+            label = "MACRO_PREFERRED_SHORT";
+            bindings = <&vim_gg>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <160>;
+            flavor = "tap-preferred";
+            require-prior-idle-ms = <50>;
+            hold-trigger-key-positions = <24 25 26 27 28 29 36 37 38 39 40 41 48 49 50 51 52 53 60 61 64 65 66 67 68 69 70 71 72 73 74 75>;
+        };
     };
 
     macros {
@@ -237,6 +249,13 @@
             bindings = <&kp LEFT_ALT &kp SEMI>;
             label = "AERO_LEADER";
         };
+
+        vim_gg: vim_gg {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp G &kp G>;
+            label = "VIM_GG";
+        };
     };
 
     keymap {
@@ -270,11 +289,11 @@
 
         Numpad_Nav_Layer {
             bindings = <
-&trans  &trans                           &trans                                       &trans                                              &trans                                            &trans                                            &trans                 &trans                                &trans                                        &trans                                  &trans                      &trans
-&trans  &trans                           &trans                                       &trans                                              &trans                                            &trans                                            &trans                 &trans                                &trans                                        &trans                                  &trans                      &trans
-&none   &mt EQUAL PERIOD                 &kp N7                                       &kp N8                                              &kp N9                                            &mt MINUS PLUS                                    &kp LC(A)              &kp LG(LEFT)                          &kp LC(D)                                     &kp LC(U)                               &kp LG(RIGHT)               &kp U
-&none   &tap_long_press_left LCMD LC(A)  &Tap_Preferred_180ms_Left LEFT_ALT NUMBER_4  &Tap_Preferred_180ms_Left LEFT_CONTROL KP_NUMBER_5  &tap_preferred_short_left LEFT_SHIFT KP_NUMBER_6  &kp N0                                            &kp LA(LEFT_SHIFT)     &tap_preferred_short LEFT_SHIFT LEFT  &Tap_Preferred_180ms LEFT_CONTROL DOWN_ARROW  &Tap_Preferred_180ms LEFT_ALT UP_ARROW  &tap_long_press LCMD RIGHT  &kp D
-&none   &mt KP_DIVIDE ASTERISK           &kp N1                                       &kp N2                                              &kp N3                                            &mt RIGHT_PARENTHESIS LEFT_PARENTHESIS            &kp LS(LA(SEMICOLON))  &kp LEFT_PARENTHESIS                  &kp RIGHT_BRACE                               &kp LEFT_BRACE                          &kp RIGHT_PARENTHESIS       &none
+&trans  &trans                           &trans                                       &trans                                              &trans                                            &trans                                            &trans                 &trans                                &trans                                        &trans                                  &trans                             &trans
+&trans  &trans                           &trans                                       &trans                                              &trans                                            &trans                                            &trans                 &trans                                &trans                                        &trans                                  &trans                             &trans
+&none   &mt EQUAL PERIOD                 &kp N7                                       &kp N8                                              &kp N9                                            &mt MINUS PLUS                                    &kp LC(A)              &macro_preferred_short 0 DOLLAR       &tap_preferred_short LC(LEFT_ARROW) LC(D)     &tap_preferred_short LC(RIGHT) LC(U)    &macro_preferred_short 0 NUMBER_0  &kp U
+&none   &tap_long_press_left LCMD LC(A)  &Tap_Preferred_180ms_Left LEFT_ALT NUMBER_4  &Tap_Preferred_180ms_Left LEFT_CONTROL KP_NUMBER_5  &tap_preferred_short_left LEFT_SHIFT KP_NUMBER_6  &kp N0                                            &kp LA(LEFT_SHIFT)     &tap_preferred_short LEFT_SHIFT LEFT  &Tap_Preferred_180ms LEFT_CONTROL DOWN_ARROW  &Tap_Preferred_180ms LEFT_ALT UP_ARROW  &tap_long_press LCMD RIGHT         &kp D
+&none   &mt KP_DIVIDE ASTERISK           &kp N1                                       &kp N2                                              &kp N3                                            &mt RIGHT_PARENTHESIS LEFT_PARENTHESIS            &kp LS(LA(SEMICOLON))  &kp LEFT_PARENTHESIS                  &kp RIGHT_BRACE                               &kp LEFT_BRACE                          &kp RIGHT_PARENTHESIS              &none
                                          &kp U                                        &kp D                                                                                                                                                                                                                &kp D                                         &kp U
                                                                                                                                           &trans                                            &kp LA(LEFT_SHIFT)                      &trans    &trans                 &kp LA(LEFT_SHIFT)                    &trans
                                                                                                                                           &trans                                            &trans                                  &trans    &trans                 &trans                                &trans
@@ -378,11 +397,11 @@
 
 &trackball_peripheral_listener {
     input-processors =
-        // multiply sensitivity by 1, divide by 12 (make it slower for scrolling),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // multiply sensitivity by 1, divide by 12 (make it slower for scrolling),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_xy_scaler 1 16>,
-        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_xy_to_scroll_mapper>,
-        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>;
 };
 
@@ -390,6 +409,6 @@
 
 &trackball_central_listener {
     input-processors =
-        // activate mouse layer within 500 ms of the trackball moving ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // activate mouse layer within 500 ms of the trackball moving ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_temp_layer 5 500>;
 };
