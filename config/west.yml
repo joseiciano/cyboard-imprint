@@ -9,11 +9,11 @@ manifest:
   projects:
     - name: zmk
       remote: zmkfirmware
-      revision: v0.2
+      revision: main
       import: app/west.yml
     - name: zmk-keyboards
       remote: Cyboard-DigitalTailor
-      revision: e68203d2bbcddd8d487dd3b721579d594d9aa262
+      revision: main
       import: config/west.yml
   self:
     path: config
