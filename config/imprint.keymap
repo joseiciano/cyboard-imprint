@@ -302,14 +302,14 @@
 
         symbol_layer {
             bindings = <
-&trans           &trans                           &trans                                         &trans                                              &trans                                       &trans                  &trans        &trans                                 &trans                                           &trans                               &trans                          &trans
-&trans           &trans                           &trans                                         &trans                                              &trans                                       &trans                  &trans        &trans                                 &trans                                           &trans                               &trans                          &trans
-&kp GRAVE        &kp LEFT_BRACKET                 &kp LEFT_PARENTHESIS                           &kp RIGHT_PARENTHESIS                               &kp RIGHT_BRACKET                            &kp DOLLAR              &kp TILDE     &kp LESS_THAN                          &kp MINUS                                        &kp PIPE                             &kp GREATER_THAN                &kp GRAVE
-&kp EXCLAMATION  &tap_long_press_left LCMD COMMA  &Tap_Preferred_180ms_Left LEFT_ALT LEFT_BRACE  &Tap_Preferred_180ms_Left LEFT_CONTROL RIGHT_BRACE  &Tap_Preferred_180ms_Left LEFT_SHIFT PERIOD  &kp QUESTION            &kp ASTERISK  &Tap_Preferred_180ms LEFT_SHIFT COLON  &Tap_Preferred_180ms LEFT_CONTROL DOUBLE_QUOTES  &Tap_Preferred_180ms LEFT_ALT SLASH  &tap_long_press LCMD BACKSLASH  &kp DOLLAR
-&kp HASH         &kp CARET                        &kp EQUAL                                      &kp UNDER                                           &kp AMPERSAND                                &kp AT                  &kp PLUS      &kp SEMICOLON                          &kp SINGLE_QUOTE                                 &kp PERCENT                          &kp DOLLAR                      &kp HASH
-                                                  &trans                                         &trans                                                                                                                                                                        &kp CARET                                        &trans
-                                                                                                                                                     &trans                                       &trans        &trans    &trans        &trans                                 &trans
-                                                                                                                                                     &none                                        &none         &none     &trans        &trans                                 &trans
+&trans           &trans                           &trans                                         &trans                                              &trans                                       &trans                          &trans        &trans                                 &trans                                           &trans                               &trans                          &trans
+&trans           &trans                           &trans                                         &trans                                              &trans                                       &trans                          &trans        &trans                                 &trans                                           &trans                               &trans                          &trans
+&kp GRAVE        &kp LEFT_BRACKET                 &kp LEFT_PARENTHESIS                           &kp RIGHT_PARENTHESIS                               &kp RIGHT_BRACKET                            &kp DOLLAR                      &kp TILDE     &kp LESS_THAN                          &kp MINUS                                        &kp PIPE                             &kp GREATER_THAN                &kp GRAVE
+&kp EXCLAMATION  &tap_long_press_left LCMD COMMA  &Tap_Preferred_180ms_Left LEFT_ALT LEFT_BRACE  &Tap_Preferred_180ms_Left LEFT_CONTROL RIGHT_BRACE  &Tap_Preferred_180ms_Left LEFT_SHIFT PERIOD  &kp QUESTION                    &kp ASTERISK  &Tap_Preferred_180ms LEFT_SHIFT COLON  &Tap_Preferred_180ms LEFT_CONTROL DOUBLE_QUOTES  &Tap_Preferred_180ms LEFT_ALT SLASH  &tap_long_press LCMD BACKSLASH  &kp HASH
+&kp HASH         &kp CARET                        &kp EQUAL                                      &kp UNDER                                           &kp AMPERSAND                                &kp AT                          &kp PLUS      &kp SEMICOLON                          &kp SINGLE_QUOTE                                 &kp PERCENT                          &kp DOLLAR                      &kp HASH
+                                                  &trans                                         &trans                                                                                                                                                                                &kp CARET                                        &trans
+                                                                                                                                                     &trans                                       &kp NON_US_BACKSLASH  &trans    &trans        &trans                                 &trans
+                                                                                                                                                     &none                                        &kp COLON             &none     &trans        &trans                                 &trans
             >;
         };
 
@@ -410,11 +410,11 @@
 
 &trackball_peripheral_listener {
     input-processors =
-        // multiply sensitivity by 1, divide by 12 (make it slower for scrolling),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // multiply sensitivity by 1, divide by 12 (make it slower for scrolling),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_xy_scaler 1 16>,
-        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_xy_to_scroll_mapper>,
-        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>;
 };
 
@@ -422,6 +422,6 @@
 
 &trackball_central_listener {
     input-processors =
-        // activate mouse layer within 500 ms of the trackball moving ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // activate mouse layer within 500 ms of the trackball moving ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_temp_layer 5 500>;
 };
