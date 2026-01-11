@@ -17,13 +17,13 @@
         compatible = "zmk,combos";
 
         to-qwerty {
-            bindings = <&to 3>;
+            bindings = <&to 1>;
             key-positions = <61 62>;
             layers = <3>;
         };
 
         to-alt {
-            bindings = <&to 3>;
+            bindings = <&to 0>;
             key-positions = <61 62>;
         };
 
@@ -54,31 +54,13 @@
             require-prior-idle-ms = <500>;
         };
 
-        colon {
-            bindings = <&kp COLON>;
-            key-positions = <27 32>;
-            require-prior-idle-ms = <500>;
-        };
-
-        slash {
-            bindings = <&kp SLASH>;
-            key-positions = <31 28>;
-            require-prior-idle-ms = <500>;
-        };
-
-        semicolon {
-            bindings = <&kp SEMI>;
-            key-positions = <25 34>;
-            require-prior-idle-ms = <500>;
-        };
-
         type_func {
             bindings = <&type_function>;
             key-positions = <64 68>;
         };
 
         vim {
-            bindings = <&mo 8>;
+            bindings = <&mo 7>;
             key-positions = <65 68>;
         };
 
@@ -295,7 +277,7 @@
 &kp MINUS     &kp PLUS       &Tap_Preferred_180ms_Left LEFT_ALT NUMBER_4  &Tap_Preferred_180ms_Left LEFT_CONTROL KP_NUMBER_5  &tap_preferred_short_left LEFT_SHIFT KP_NUMBER_6  &kp N0                                  &kp LA(LEFT_SHIFT)     &tap_preferred_short LEFT_SHIFT LEFT_ARROW  &Tap_Preferred_180ms LEFT_CONTROL UP_ARROW  &Tap_Preferred_180ms LEFT_ALT DOWN    &tap_long_press LCMD RIGHT           &kp D
 &kp ASTERISK  &kp KP_DIVIDE  &kp N1                                       &kp N2                                              &kp N3                                            &kp K                                   &kp LS(LA(SEMICOLON))  &kp LEFT_PARENTHESIS                        &kp LEFT_BRACE                              &kp RIGHT_BRACE                       &kp RIGHT_PARENTHESIS                &none
                              &kp G                                        &kp EQUAL                                                                                                                                                                                                        &kp D                                       &kp U
-                                                                                                                              &trans                                            &mo 9             &kp LA(LEFT_SHIFT)    &trans                 &kp LA(LEFT_SHIFT)                          &trans
+                                                                                                                              &trans                                            &mo 8             &kp LA(LEFT_SHIFT)    &trans                 &kp LA(LEFT_SHIFT)                          &trans
                                                                                                                               &kp LESS_THAN                                     &kp GREATER_THAN  &trans                &trans                 &trans                                      &trans
             >;
         };
@@ -336,19 +318,6 @@
                 &trans          &trans                                                                                          &trans          &trans
                                                 &trans           &mkp LCLK       &mkp RCLK    &mkp MB5          &trans          &trans
                                                 &mkp LCLK        &mkp LCLK       &mkp RCLK    &mkp MB4          &mkp RCLK       &mkp LCLK
-            >;
-        };
-
-        cloud {
-            bindings = <
-&none       &none                        &none                                  &none                                     &none                                   &none                    &none  &none                              &none                                &none                            &none                   &none
-&none       &none                        &none                                  &none                                     &none                                   &none                    &none  &none                              &none                                &none                            &none                   &none
-&kp ESCAPE  &kp J                        &long_press_macro LG(LEFT_ARROW) O     &long_press_macro LG(A) U                 &long_press_macro LG(RIGHT) B           &kp Q                    &kp Z  &long_press_macro LG(LEFT) F       &long_press_macro LG(A) L            &long_press_macro RIGHT C        &kp W                   &kp TAB
-&kp TAB     &tap_long_press_left LCMD I  &Tap_Preferred_180ms_Left LEFT_ALT A   &Tap_Preferred_180ms_Left LEFT_CONTROL E  &tap_preferred_short_left LEFT_SHIFT N  &kp Y                    &kp M  &tap_preferred_short LEFT_SHIFT H  &Tap_Preferred_180ms LEFT_CONTROL T  &Tap_Preferred_180ms LEFT_ALT S  &tap_long_press LCMD R  &kp ENTER
-&kp LSHFT   &kp SLASH                    &Tap_Preferred_180ms_Left LG(Z) COMMA  &Tap_Preferred_180ms_Left LG(X) PERIOD    &Tap_Preferred_180ms_Left LG(C) P       &kp MINUS                &kp K  &Tap_Preferred_180ms LG(V) D       &kp G                                &kp X                            &kp V                   &kp SQT
-                                         &lt_tap_preferred 3 LC(A)              &lt_tap_preferred 3 LC(A)                                                                                                                            &kp Z                                &kp Q
-                                                                                                                          &lt_tap_preferred 3 SPACE               &kp ESCAPE    &kp TAB    &mo 5  &lt 5 ENTER                        &lt_tap_preferred 3 BACKSPACE
-                                                                                                                          &caps_word                              &kp CAPSLOCK  &mo 4      &mo 4  &mo 5                              &mo 5
             >;
         };
 
@@ -393,14 +362,14 @@
 
         Typing {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans  &trans  &trans  &trans  &trans
-                &trans  &trans                                            &trans  &trans
-                                &trans  &trans  &trans    &trans  &trans  &trans
-                                &trans  &trans  &trans    &trans  &trans  &trans
+&trans     &trans      &trans    &trans    &trans  &trans            &trans  &trans  &trans  &trans  &trans  &trans
+&trans     &trans      &trans    &trans    &trans  &trans            &trans  &trans  &trans  &trans  &trans  &trans
+&kp ESC    &kp PERIOD  &kp U     &kp O     &kp L   &kp J             &kp V   &kp C   &kp D   &kp P   &kp B   &kp BSPC
+&kp TAB    &kp I       &kp E     &kp A     &kp R   &kp G             &kp F   &kp S   &kp T   &kp Y   &kp N   &kp APOS
+&kp LSHFT  &kp COMMA   &kp SEMI  &kp FSLH  &kp H   &kp Q             &kp Z   &kp W   &kp M   &kp K   &kp X   &trans
+                       &trans    &trans                                              &trans  &trans
+                                           &trans  &trans  &trans    &trans  &trans  &trans
+                                           &trans  &trans  &trans    &trans  &trans  &trans
             >;
         };
     };
@@ -410,11 +379,11 @@
 
 &trackball_peripheral_listener {
     input-processors =
-        // multiply sensitivity by 1, divide by 12 (make it slower for scrolling),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // multiply sensitivity by 1, divide by 12 (make it slower for scrolling),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_xy_scaler 1 16>,
-        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_xy_to_scroll_mapper>,
-        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>;
 };
 
@@ -422,6 +391,6 @@
 
 &trackball_central_listener {
     input-processors =
-        // activate mouse layer within 500 ms of the trackball moving ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // activate mouse layer within 500 ms of the trackball moving ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_temp_layer 5 500>;
 };
