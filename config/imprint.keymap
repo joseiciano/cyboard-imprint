@@ -17,13 +17,13 @@
         compatible = "zmk,combos";
 
         to-qwerty {
-            bindings = <&to 0>;
+            bindings = <&to 3>;
             key-positions = <61 62>;
-            layers = <1>;
+            layers = <3>;
         };
 
         to-alt {
-            bindings = <&to 1>;
+            bindings = <&to 3>;
             key-positions = <61 62>;
         };
 
@@ -83,7 +83,7 @@
         };
 
         number_layer {
-            bindings = <&mo 2>;
+            bindings = <&mo 3>;
             key-positions = <64 69>;
         };
     };
@@ -239,7 +239,7 @@
         trans_and_go_layer: trans_and_go_layer {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&trans &to 0>;
+            bindings = <&trans &to 3>;
             label = "TRANS_AND_GO_LAYER";
         };
 
@@ -261,19 +261,6 @@
     keymap {
         compatible = "zmk,keymap";
 
-        qwerty {
-            bindings = <
-&none      &none                        &none                                 &none                                     &none                                   &none                                  &none  &none                              &none                                &none                            &none                      &none
-&none      &none                        &none                                 &none                                     &none                                   &none                                  &none  &none                              &none                                &none                            &none                      &none
-&kp ESC    &kp Q                        &long_press_macro LG(LEFT_ARROW) W    &long_press_macro LG(A) E                 &long_press_macro LG(RIGHT) R           &kp T                                  &kp Y  &long_press_macro LG(LEFT) U       &long_press_macro LG(A) I            &long_press_macro RG(RIGHT) O    &kp P                      &kp BACKSPACE
-&kp TAB    &tap_long_press_left LCMD A  &Tap_Preferred_180ms_Left LEFT_ALT S  &Tap_Preferred_180ms_Left LEFT_CONTROL D  &tap_preferred_short_left LEFT_SHIFT F  &kp G                                  &kp H  &tap_preferred_short LEFT_SHIFT J  &Tap_Preferred_180ms LEFT_CONTROL K  &Tap_Preferred_180ms LEFT_ALT L  &tap_long_press LCMD SEMI  &kp SQT
-&kp LSHFT  &kp Z                        &Tap_Preferred_180ms_Left LG(Z) X     &Tap_Preferred_180ms_Left LG(X) C         &Tap_Preferred_180ms_Left LG(C) V       &kp B                                  &kp N  &Tap_Preferred_180ms LG(V) M       &kp COMMA                            &kp PERIOD                       &kp SLASH                  &kp SQT
-                                        &lt_tap_preferred 3 LA(SEMI)          &lt_tap_preferred 2 LC(A)                                                                                                                                          &lt_tap_preferred 2 LC(A)            &lt_tap_preferred 3 LA(SEMI)
-                                                                                                                        &lt_tap_preferred 3 SPACE               &lt_tap_preferred 5 ESCAPE  &kp TAB    &mo 5  &lt_tap_preferred 2 ENTER          &kp BACKSPACE
-                                                                                                                        &kp TAB                                 &caps_word                  &mo 4      &mo 4  &mo 5                              &mo 5
-            >;
-        };
-
         ringless-no-right {
             bindings = <
 &none       &none                        &none                                 &none                                     &none                                   &none                                  &none  &none                              &none                                &none                            &none                &none
@@ -281,22 +268,35 @@
 &kp ESCAPE  &kp PERIOD                   &long_press_macro LG(LEFT_ARROW) U    &long_press_macro LG(A) O                 &long_press_macro LG(RIGHT) L           &kp J                                  &kp V  &long_press_macro LG(LEFT) C       &long_press_macro LG(A) D            &long_press_macro LG(RIGHT) P    &kp B                &kp BACKSPACE
 &kp TAB     &tap_long_press_left LCMD I  &Tap_Preferred_180ms_Left LEFT_ALT E  &Tap_Preferred_180ms_Left LEFT_CONTROL A  &tap_preferred_short_left LEFT_SHIFT R  &kp G                                  &kp F  &tap_preferred_short LEFT_SHIFT S  &Tap_Preferred_180ms LEFT_CONTROL T  &Tap_Preferred_180ms LEFT_ALT Y  &tap_long_press I N  &kp SQT
 &kp LSHFT   &kp COMMA                    &Tap_Preferred_180ms_Left LG(Z) SEMI  &Tap_Preferred_180ms_Left LG(X) SLASH     &Tap_Preferred_180ms_Left LG(C) H       &kp Q                                  &kp Z  &Tap_Preferred_180ms LG(V) W       &kp M                                &kp K                            &kp X                &kp SQT
-                                         &sl 3                                 &lt_tap_preferred 2 LC(A)                                                                                                                                          &lt_tap_preferred 2 LC(A)            &sl 3
-                                                                                                                         &lt_tap_preferred 3 SPACE               &lt_tap_preferred 5 ESCAPE  &kp TAB    &mo 5  &lt 2 ENTER                        &kp BACKSPACE
+                                         &sl 3                                 &lt_tap_preferred 3 LC(A)                                                                                                                                          &lt_tap_preferred 3 LC(A)            &sl 3
+                                                                                                                         &lt_tap_preferred 3 SPACE               &lt_tap_preferred 5 ESCAPE  &kp TAB    &mo 5  &lt 3 ENTER                        &kp BACKSPACE
                                                                                                                          &sk LEFT_SHIFT                          &caps_word                  &mo 4      &mo 4  &mo 5                              &sk LEFT_SHIFT
+            >;
+        };
+
+        qwerty {
+            bindings = <
+&none      &none                        &none                                 &none                                     &none                                   &none                                  &none  &none                              &none                                &none                            &none                      &none
+&none      &none                        &none                                 &none                                     &none                                   &none                                  &none  &none                              &none                                &none                            &none                      &none
+&kp ESC    &kp Q                        &long_press_macro LG(LEFT_ARROW) W    &long_press_macro LG(A) E                 &long_press_macro LG(RIGHT) R           &kp T                                  &kp Y  &long_press_macro LG(LEFT) U       &long_press_macro LG(A) I            &long_press_macro RG(RIGHT) O    &kp P                      &kp BACKSPACE
+&kp TAB    &tap_long_press_left LCMD A  &Tap_Preferred_180ms_Left LEFT_ALT S  &Tap_Preferred_180ms_Left LEFT_CONTROL D  &tap_preferred_short_left LEFT_SHIFT F  &kp G                                  &kp H  &tap_preferred_short LEFT_SHIFT J  &Tap_Preferred_180ms LEFT_CONTROL K  &Tap_Preferred_180ms LEFT_ALT L  &tap_long_press LCMD SEMI  &kp SQT
+&kp LSHFT  &kp Z                        &Tap_Preferred_180ms_Left LG(Z) X     &Tap_Preferred_180ms_Left LG(X) C         &Tap_Preferred_180ms_Left LG(C) V       &kp B                                  &kp N  &Tap_Preferred_180ms LG(V) M       &kp COMMA                            &kp PERIOD                       &kp SLASH                  &kp SQT
+                                        &lt_tap_preferred 3 LA(SEMI)          &lt_tap_preferred 3 LC(A)                                                                                                                                          &lt_tap_preferred 3 LC(A)            &lt_tap_preferred 3 LA(SEMI)
+                                                                                                                        &lt_tap_preferred 3 SPACE               &lt_tap_preferred 5 ESCAPE  &kp TAB    &mo 5  &lt_tap_preferred 3 ENTER          &kp BACKSPACE
+                                                                                                                        &kp TAB                                 &caps_word                  &mo 4      &mo 4  &mo 5                              &mo 5
             >;
         };
 
         Numpad_Nav_Layer {
             bindings = <
-&trans        &trans         &trans                                       &trans                                              &trans                                            &trans                                  &trans                 &trans                             &trans                                     &trans                                &trans                               &trans
-&trans        &trans         &trans                                       &trans                                              &trans                                            &trans                                  &trans                 &trans                             &trans                                     &trans                                &trans                               &trans
-&kp PERCENT   &kp COLON      &kp N7                                       &kp N8                                              &kp N9                                            &kp J                                   &kp LC(A)              &macro_preferred_short 0 DOLLAR    &tap_preferred_short LC(LEFT_ARROW) LC(D)  &tap_preferred_short LC(RIGHT) LC(U)  &tap_preferred_short LS(G) NUMBER_0  &kp U
-&kp MINUS     &kp PLUS       &Tap_Preferred_180ms_Left LEFT_ALT NUMBER_4  &Tap_Preferred_180ms_Left LEFT_CONTROL KP_NUMBER_5  &tap_preferred_short_left LEFT_SHIFT KP_NUMBER_6  &kp N0                                  &kp LA(LEFT_SHIFT)     &tap_preferred_short LEFT_SHIFT H  &Tap_Preferred_180ms LEFT_CONTROL J        &Tap_Preferred_180ms LEFT_ALT K       &tap_long_press LCMD L               &kp D
-&kp ASTERISK  &kp KP_DIVIDE  &kp N1                                       &kp N2                                              &kp N3                                            &kp K                                   &kp LS(LA(SEMICOLON))  &kp LEFT_PARENTHESIS               &kp LEFT_BRACE                             &kp RIGHT_BRACE                       &kp RIGHT_PARENTHESIS                &none
-                             &kp G                                        &kp EQUAL                                                                                                                                                                                               &kp D                                      &kp U
-                                                                                                                              &trans                                            &mo 9             &kp LA(LEFT_SHIFT)    &trans                 &kp LA(LEFT_SHIFT)                 &trans
-                                                                                                                              &kp LESS_THAN                                     &kp GREATER_THAN  &trans                &trans                 &trans                             &trans
+&trans        &trans         &trans                                       &trans                                              &trans                                            &trans                                  &trans                 &trans                                      &trans                                      &trans                                &trans                               &trans
+&trans        &trans         &trans                                       &trans                                              &trans                                            &trans                                  &trans                 &trans                                      &trans                                      &trans                                &trans                               &trans
+&kp PERCENT   &kp COLON      &kp N7                                       &kp N8                                              &kp N9                                            &kp J                                   &kp LC(A)              &macro_preferred_short 0 DOLLAR             &tap_preferred_short LC(LEFT_ARROW) LC(D)   &tap_preferred_short LC(RIGHT) LC(U)  &tap_preferred_short LS(G) NUMBER_0  &kp U
+&kp MINUS     &kp PLUS       &Tap_Preferred_180ms_Left LEFT_ALT NUMBER_4  &Tap_Preferred_180ms_Left LEFT_CONTROL KP_NUMBER_5  &tap_preferred_short_left LEFT_SHIFT KP_NUMBER_6  &kp N0                                  &kp LA(LEFT_SHIFT)     &tap_preferred_short LEFT_SHIFT LEFT_ARROW  &Tap_Preferred_180ms LEFT_CONTROL UP_ARROW  &Tap_Preferred_180ms LEFT_ALT DOWN    &tap_long_press LCMD RIGHT           &kp D
+&kp ASTERISK  &kp KP_DIVIDE  &kp N1                                       &kp N2                                              &kp N3                                            &kp K                                   &kp LS(LA(SEMICOLON))  &kp LEFT_PARENTHESIS                        &kp LEFT_BRACE                              &kp RIGHT_BRACE                       &kp RIGHT_PARENTHESIS                &none
+                             &kp G                                        &kp EQUAL                                                                                                                                                                                                        &kp D                                       &kp U
+                                                                                                                              &trans                                            &mo 9             &kp LA(LEFT_SHIFT)    &trans                 &kp LA(LEFT_SHIFT)                          &trans
+                                                                                                                              &kp LESS_THAN                                     &kp GREATER_THAN  &trans                &trans                 &trans                                      &trans
             >;
         };
 
@@ -309,7 +309,7 @@
 &kp HASH         &kp CARET                        &kp EQUAL                                      &kp UNDER                                           &kp AMPERSAND                                &kp AT                          &kp PLUS      &kp SEMICOLON                          &kp SINGLE_QUOTE                                 &kp PERCENT                          &kp DOLLAR                      &kp HASH
                                                   &trans                                         &trans                                                                                                                                                                                &kp CARET                                        &trans
                                                                                                                                                      &trans                                       &kp NON_US_BACKSLASH  &trans    &trans        &trans                                 &trans
-                                                                                                                                                     &none                                        &kp COLON             &none     &trans        &trans                                 &trans
+                                                                                                                                                     &none                                        &kp COLON             &none     &trans        &trans                                 &kp SPACE
             >;
         };
 
@@ -319,7 +319,7 @@
 &trans       &trans        &trans        &trans        &trans        &trans                    &trans          &trans           &trans           &trans           &trans           &trans
 &sys_reset   &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &studio_unlock            &studio_unlock  &rgb_ug RGB_HUI  &rgb_ug RGB_SAI  &rgb_ug RGB_BRI  &rgb_ug RGB_SPI  &sys_reset
 &bootloader  &none         &none         &none         &none         &none                     &none           &rgb_ug RGB_HUD  &rgb_ug RGB_SAD  &rgb_ug RGB_BRD  &rgb_ug RGB_SPD  &bootloader
-&to 1        &none         &none         &none         &none         &none                     &none           &kp C_VOLUME_UP  &kp C_VOL_DN     &kp K_MUTE       &none            &to 1
+&to 3        &none         &none         &none         &none         &none                     &none           &kp C_VOLUME_UP  &kp C_VOL_DN     &kp K_MUTE       &none            &to 3
                            &bt BT_CLR    &trans                                                                                 &rgb_ug RGB_TOG  &rgb_ug RGB_EFF
                                                        &trans        &trans          &trans    &trans          &trans           &trans
                                                        &trans        &trans          &trans    &trans          &trans           &trans
@@ -346,8 +346,8 @@
 &kp ESCAPE  &kp J                        &long_press_macro LG(LEFT_ARROW) O     &long_press_macro LG(A) U                 &long_press_macro LG(RIGHT) B           &kp Q                    &kp Z  &long_press_macro LG(LEFT) F       &long_press_macro LG(A) L            &long_press_macro RIGHT C        &kp W                   &kp TAB
 &kp TAB     &tap_long_press_left LCMD I  &Tap_Preferred_180ms_Left LEFT_ALT A   &Tap_Preferred_180ms_Left LEFT_CONTROL E  &tap_preferred_short_left LEFT_SHIFT N  &kp Y                    &kp M  &tap_preferred_short LEFT_SHIFT H  &Tap_Preferred_180ms LEFT_CONTROL T  &Tap_Preferred_180ms LEFT_ALT S  &tap_long_press LCMD R  &kp ENTER
 &kp LSHFT   &kp SLASH                    &Tap_Preferred_180ms_Left LG(Z) COMMA  &Tap_Preferred_180ms_Left LG(X) PERIOD    &Tap_Preferred_180ms_Left LG(C) P       &kp MINUS                &kp K  &Tap_Preferred_180ms LG(V) D       &kp G                                &kp X                            &kp V                   &kp SQT
-                                         &lt_tap_preferred 3 LC(A)              &lt_tap_preferred 2 LC(A)                                                                                                                            &kp Z                                &kp Q
-                                                                                                                          &lt_tap_preferred 3 SPACE               &kp ESCAPE    &kp TAB    &mo 5  &lt 5 ENTER                        &lt_tap_preferred 2 BACKSPACE
+                                         &lt_tap_preferred 3 LC(A)              &lt_tap_preferred 3 LC(A)                                                                                                                            &kp Z                                &kp Q
+                                                                                                                          &lt_tap_preferred 3 SPACE               &kp ESCAPE    &kp TAB    &mo 5  &lt 5 ENTER                        &lt_tap_preferred 3 BACKSPACE
                                                                                                                           &caps_word                              &kp CAPSLOCK  &mo 4      &mo 4  &mo 5                              &mo 5
             >;
         };
@@ -359,8 +359,8 @@
 &kp ESCAPE  &kp P                        &long_press_macro LG(LEFT_ARROW) Y    &long_press_macro LG(A) U                 &long_press_macro LG(RIGHT) O           &kp MINUS                 &kp X  &long_press_macro LG(LEFT) L       &long_press_macro LG(A) D            &long_press_macro RIGHT W        &kp F                   &kp TAB
 &kp Z       &tap_long_press_left LCMD C  &Tap_Preferred_180ms_Left LEFT_ALT I  &Tap_Preferred_180ms_Left LEFT_CONTROL E  &tap_preferred_short_left LEFT_SHIFT A  &kp SEMICOLON             &kp K  &tap_preferred_short LEFT_SHIFT H  &Tap_Preferred_180ms LEFT_CONTROL T  &Tap_Preferred_180ms LEFT_ALT N  &tap_long_press LCMD S  &kp Q
 &kp LSHFT   &kp SQT                      &Tap_Preferred_180ms_Left LG(Z) SEMI  &Tap_Preferred_180ms_Left LG(X) PERIOD    &Tap_Preferred_180ms_Left LG(C) COMMA   &kp PLUS                  &kp J  &Tap_Preferred_180ms_Left LG(V) M  &kp G                                &kp B                            &kp V                   &kp SQT
-                                         &lt_tap_preferred 3 LC(A)             &lt_tap_preferred 2 LC(A)                                                                                                                             &lt_tap_preferred 2 LC(A)            &lt_tap_preferred 3 LC(A)
-                                                                                                                         &lt_tap_preferred 3 SPACE               &kp TAB        &kp TAB    &mo 5  &lt 5 ENTER                        &lt_tap_preferred 2 R
+                                         &lt_tap_preferred 3 LC(A)             &lt_tap_preferred 3 LC(A)                                                                                                                             &lt_tap_preferred 3 LC(A)            &lt_tap_preferred 3 LC(A)
+                                                                                                                         &lt_tap_preferred 3 SPACE               &kp TAB        &kp TAB    &mo 5  &lt 5 ENTER                        &lt_tap_preferred 3 R
                                                                                                                          &caps_word                              &kp CAPSLOCK   &mo 4      &mo 4  &mo 5                              &mo 5
             >;
         };
@@ -380,14 +380,14 @@
 
         vim_motions {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans                                      &trans                                      &trans                              &trans                                         &trans
-&trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans                                      &trans                                      &trans                              &trans                                         &trans
-&trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans                                      &trans                                      &trans                              &trans                                         &trans
-&trans  &trans  &trans  &trans  &trans  &trans            &trans  &tap_preferred_short LEFT_SHIFT LEFT_ARROW  &tap_preferred_short LEFT_CONTROL UP_ARROW  &tap_preferred_short LEFT_ALT DOWN  &tap_preferred_short LEFT_COMMAND RIGHT_ARROW  &trans
-&trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans                                      &trans                                      &trans                              &trans                                         &trans
-                &trans  &trans                                                                                &trans                                      &trans
-                                &trans  &trans  &trans    &trans  &trans                                      &trans
-                                &trans  &trans  &trans    &trans  &trans                                      &trans
+&trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans                             &trans                               &trans                           &trans                              &trans
+&trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans                             &trans                               &trans                           &trans                              &trans
+&trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans                             &trans                               &trans                           &trans                              &trans
+&trans  &trans  &trans  &trans  &trans  &trans            &trans  &tap_preferred_short LEFT_SHIFT H  &tap_preferred_short LEFT_CONTROL J  &tap_preferred_short LEFT_ALT K  &tap_preferred_short L RIGHT_ARROW  &trans
+&trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans                             &trans                               &trans                           &trans                              &trans
+                &trans  &trans                                                                       &trans                               &trans
+                                &trans  &trans  &trans    &trans  &trans                             &trans
+                                &trans  &trans  &trans    &trans  &trans                             &trans
             >;
         };
 
@@ -410,11 +410,11 @@
 
 &trackball_peripheral_listener {
     input-processors =
-        // multiply sensitivity by 1, divide by 12 (make it slower for scrolling),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // multiply sensitivity by 1, divide by 12 (make it slower for scrolling),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_xy_scaler 1 16>,
-        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_xy_to_scroll_mapper>,
-        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>;
 };
 
@@ -422,6 +422,6 @@
 
 &trackball_central_listener {
     input-processors =
-        // activate mouse layer within 500 ms of the trackball moving ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // activate mouse layer within 500 ms of the trackball moving ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_temp_layer 5 500>;
 };
