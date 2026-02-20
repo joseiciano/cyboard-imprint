@@ -276,14 +276,14 @@
 
         Numpad_Nav_Layer {
             bindings = <
-&trans        &trans         &trans                                       &trans                                              &trans                                            &trans                                  &trans                 &trans                                      &trans                                      &trans                                &trans                               &trans
-&trans        &trans         &trans                                       &trans                                              &trans                                            &trans                                  &trans                 &trans                                      &trans                                      &trans                                &trans                               &trans
-&kp PERCENT   &kp COLON      &kp N7                                       &kp N8                                              &kp N9                                            &kp J                                   &kp LC(A)              &macro_preferred_short 0 DOLLAR             &tap_preferred_short LC(LEFT_ARROW) LC(D)   &tap_preferred_short LC(RIGHT) LC(U)  &tap_preferred_short LS(G) NUMBER_0  &kp U
-&kp MINUS     &kp PLUS       &Tap_Preferred_180ms_Left LEFT_ALT NUMBER_4  &Tap_Preferred_180ms_Left LEFT_CONTROL KP_NUMBER_5  &tap_preferred_short_left LEFT_SHIFT KP_NUMBER_6  &kp N0                                  &kp LA(LEFT_SHIFT)     &tap_preferred_short LEFT_SHIFT LEFT_ARROW  &Tap_Preferred_180ms LEFT_CONTROL UP_ARROW  &Tap_Preferred_180ms LEFT_ALT DOWN    &tap_long_press LCMD RIGHT           &kp D
-&kp ASTERISK  &kp KP_DIVIDE  &kp N1                                       &kp N2                                              &kp N3                                            &kp K                                   &kp LS(LA(SEMICOLON))  &kp LEFT_PARENTHESIS                        &kp LEFT_BRACE                              &kp RIGHT_BRACE                       &kp RIGHT_PARENTHESIS                &none
-                             &sk LEFT_ALT                                 &kp EQUAL                                                                                                                                                                                                        &kp LEFT_ALT                                &kp LA(LEFT_SHIFT)
-                                                                                                                              &trans                                            &mo 8             &kp LA(LEFT_SHIFT)    &kp LA(LEFT_SHIFT)     &kp LA(LEFT_SHIFT)                          &trans
-                                                                                                                              &kp LESS_THAN                                     &kp GREATER_THAN  &trans                &trans                 &trans                                      &trans
+&trans        &trans         &trans                                       &trans                                              &trans                                            &trans                                  &trans                 &trans                             &trans                               &trans                                &trans                         &trans
+&trans        &trans         &trans                                       &trans                                              &trans                                            &trans                                  &trans                 &trans                             &trans                               &trans                                &trans                         &trans
+&kp PERCENT   &kp COLON      &kp N7                                       &kp N8                                              &kp N9                                            &kp J                                   &kp LC(A)              &kp LEFT                           &kp UP_ARROW                         &kp DOWN                              &kp RIGHT                      &kp U
+&kp MINUS     &kp PLUS       &Tap_Preferred_180ms_Left LEFT_ALT NUMBER_4  &Tap_Preferred_180ms_Left LEFT_CONTROL KP_NUMBER_5  &tap_preferred_short_left LEFT_SHIFT KP_NUMBER_6  &kp N0                                  &kp LA(LEFT_SHIFT)     &tap_preferred_short LEFT_SHIFT H  &Tap_Preferred_180ms LEFT_CONTROL J  &Tap_Preferred_180ms LEFT_ALT K       &tap_long_press LCMD L         &kp D
+&kp ASTERISK  &kp KP_DIVIDE  &kp N1                                       &kp N2                                              &kp N3                                            &kp K                                   &kp LS(LA(SEMICOLON))  &macro_preferred_short 0 DOLLAR    &tap_preferred_short LC(LEFT) LC(D)  &tap_preferred_short LC(RIGHT) LC(U)  &tap_preferred_short LS(G) N0  &none
+                             &sk LEFT_ALT                                 &kp LEFT_CONTROL                                                                                                                                                                                        &kp LEFT_ALT                         &kp LA(LEFT_SHIFT)
+                                                                                                                              &trans                                            &mo 8             &kp LA(LEFT_SHIFT)    &kp LA(LEFT_SHIFT)     &kp LA(LEFT_SHIFT)                 &trans
+                                                                                                                              &kp LESS_THAN                                     &kp GREATER_THAN  &trans                &trans                 &trans                             &trans
             >;
         };
 
@@ -384,11 +384,11 @@
 
 &trackball_peripheral_listener {
     input-processors =
-        // multiply sensitivity by 1, divide by 12 (make it slower for scrolling),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // multiply sensitivity by 1, divide by 12 (make it slower for scrolling),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_xy_scaler 1 16>,
-        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_xy_to_scroll_mapper>,
-        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>;
 };
 
@@ -396,6 +396,6 @@
 
 &trackball_central_listener {
     input-processors =
-        // activate mouse layer within 500 ms of the trackball moving ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // activate mouse layer within 500 ms of the trackball moving ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_temp_layer 5 500>;
 };
