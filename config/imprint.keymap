@@ -191,6 +191,13 @@
             bindings = <&sk LEFT_ALT &sk LEFT_SHIFT>;
             label = "NEW_MACRO";
         };
+
+        tmux_leader: tmux_leader {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LC(A)>;
+            label = "TMUX_LEADER";
+        };
     };
 
     keymap {
@@ -203,7 +210,7 @@
 &kp ESCAPE  &kp PERIOD                   &long_press_macro LG(LEFT_ARROW) U    &long_press_macro LG(A) O                 &long_press_macro LG(RIGHT) L           &kp J                                       &kp V  &long_press_macro LG(LEFT) C       &long_press_macro LG(A) D            &long_press_macro LG(RIGHT) P    &kp B                           &kp BACKSPACE
 &kp TAB     &tap_long_press_left LCMD I  &Tap_Preferred_180ms_Left LEFT_ALT E  &Tap_Preferred_180ms_Left LEFT_CONTROL A  &tap_preferred_short_left LEFT_SHIFT R  &kp G                                       &kp F  &tap_preferred_short LEFT_SHIFT S  &Tap_Preferred_180ms LEFT_CONTROL T  &Tap_Preferred_180ms LEFT_ALT Y  &tap_long_press LEFT_COMMAND N  &kp SQT
 &kp LSHFT   &kp COMMA                    &Tap_Preferred_180ms_Left LG(Z) SEMI  &Tap_Preferred_180ms_Left LG(X) SLASH     &Tap_Preferred_180ms_Left LG(C) H       &kp Q                                       &kp Z  &Tap_Preferred_180ms LG(V) W       &kp M                                &kp K                            &kp X                           &kp SQT
-                                         &lt_tap_preferred 3 LC(A)             &aero_leader                                                                                                                                                            &aero_leader                         &lt_tap_preferred 3 LC(A)
+                                         &aero_leader                          &tmux_leader                                                                                                                                                            &tmux_leader                         &aero_leader
                                                                                                                          &lt_tap_preferred 3 SPACE               &lt_tap_preferred 5 ESCAPE  &kp TAB         &mo 5  &lt 2 ENTER                        &kp BACKSPACE
                                                                                                                          &sk LEFT_SHIFT                          &caps_word                  &kp CAPSLOCK    &mo 4  &mo 5                              &sk LEFT_SHIFT
             >;
@@ -345,11 +352,11 @@
 
 &trackball_peripheral_listener {
     input-processors =
-        // multiply sensitivity by 1, divide by 12 (make it slower for scrolling),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // multiply sensitivity by 1, divide by 12 (make it slower for scrolling),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_xy_scaler 1 16>,
-        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_xy_to_scroll_mapper>,
-        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>;
 };
 
@@ -357,6 +364,6 @@
 
 &trackball_central_listener {
     input-processors =
-        // activate mouse layer within 500 ms of the trackball moving ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // activate mouse layer within 500 ms of the trackball moving ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_temp_layer 5 500>;
 };
