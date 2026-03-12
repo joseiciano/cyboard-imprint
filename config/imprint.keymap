@@ -161,13 +161,6 @@
     };
 
     macros {
-        trans_and_go_layer: trans_and_go_layer {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&trans &to 7>;
-            label = "TRANS_AND_GO_LAYER";
-        };
-
         aero_leader: aero_leader {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -182,25 +175,18 @@
             label = "VIM_GG";
         };
 
-        alt_shift_hold: alt_shift {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp LEFT_ALT &kp LEFT_SHIFT>;
-            label = "ALT_SHIFT";
-        };
-
-        sticky_alt_shift: new_macro {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&sk LEFT_ALT &sk LEFT_SHIFT>;
-            label = "NEW_MACRO";
-        };
-
         tmux_leader: tmux_leader {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp LC(A)>;
             label = "TMUX_LEADER";
+        };
+
+        alt_shift_kp: alt_shift {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_ALT &kp LEFT_SHIFT>;
+            label = "ALT_SHIFT";
         };
     };
 
@@ -222,14 +208,14 @@
 
         Numpad_Nav_Layer {
             bindings = <
-&trans        &trans      &trans                                       &trans                                              &trans                                            &trans                                  &trans                 &trans                                &trans                                        &trans                                  &trans                         &trans
-&trans        &trans      &trans                                       &trans                                              &trans                                            &trans                                  &trans                 &trans                                &trans                                        &trans                                  &trans                         &trans
-&kp PERCENT   &kp PERIOD  &kp N7                                       &kp N8                                              &kp N9                                            &kp J                                   &kp LC(A)              &kp H                                 &kp J                                         &kp K                                   &kp L                          &kp U
-&kp MINUS     &kp PLUS    &Tap_Preferred_180ms_Left LEFT_ALT NUMBER_4  &Tap_Preferred_180ms_Left LEFT_CONTROL KP_NUMBER_5  &tap_preferred_short_left LEFT_SHIFT KP_NUMBER_6  &kp N0                                  &kp LA(LEFT_SHIFT)     &tap_preferred_short LEFT_SHIFT LEFT  &Tap_Preferred_180ms LEFT_CONTROL DOWN_ARROW  &Tap_Preferred_180ms LEFT_ALT UP_ARROW  &tap_long_press LCMD RIGHT     &kp D
-&kp ASTERISK  &kp COMMA   &kp N1                                       &kp N2                                              &kp N3                                            &kp K                                   &kp LS(LA(SEMICOLON))  &macro_preferred_short 0 DOLLAR       &tap_preferred_short LC(LEFT) LC(D)           &tap_preferred_short LC(RIGHT) LC(U)    &tap_preferred_short LS(G) N0  &none
-                          &aero_leader                                 &tmux_leader                                                                                                                                                                                               &tmux_leader                                  &aero_leader
-                                                                                                                           &trans                                            &mo 5             &kp LA(LEFT_SHIFT)    &kp LA(LEFT_SHIFT)     &kp LA(LEFT_SHIFT)                    &trans
-                                                                                                                           &kp LESS_THAN                                     &kp GREATER_THAN  &trans                &trans                 &trans                                &trans
+&trans        &trans      &trans                                       &trans                                              &trans                                            &trans                             &trans                 &trans                                &trans                                        &trans                                  &trans                         &trans
+&trans        &trans      &trans                                       &trans                                              &trans                                            &trans                             &trans                 &trans                                &trans                                        &trans                                  &trans                         &trans
+&kp PERCENT   &kp PERIOD  &kp N7                                       &kp N8                                              &kp N9                                            &kp J                              &kp LC(A)              &kp H                                 &kp J                                         &kp K                                   &kp L                          &kp U
+&kp MINUS     &kp PLUS    &Tap_Preferred_180ms_Left LEFT_ALT NUMBER_4  &Tap_Preferred_180ms_Left LEFT_CONTROL KP_NUMBER_5  &tap_preferred_short_left LEFT_SHIFT KP_NUMBER_6  &kp N0                             &alt_shift_kp          &tap_preferred_short LEFT_SHIFT LEFT  &Tap_Preferred_180ms LEFT_CONTROL DOWN_ARROW  &Tap_Preferred_180ms LEFT_ALT UP_ARROW  &tap_long_press LCMD RIGHT     &kp D
+&kp ASTERISK  &kp COMMA   &kp N1                                       &kp N2                                              &kp N3                                            &kp K                              &kp LS(LA(SEMICOLON))  &macro_preferred_short 0 DOLLAR       &tap_preferred_short LC(LEFT) LC(D)           &tap_preferred_short LC(RIGHT) LC(U)    &tap_preferred_short LS(G) N0  &none
+                          &aero_leader                                 &tmux_leader                                                                                                                                                                                          &tmux_leader                                  &aero_leader
+                                                                                                                           &trans                                            &mo 5             &alt_shift_kp    &kp LA(LEFT_SHIFT)     &kp LA(LEFT_SHIFT)                    &trans
+                                                                                                                           &kp LESS_THAN                                     &kp GREATER_THAN  &trans           &trans                 &trans                                &trans
             >;
         };
 
@@ -317,11 +303,11 @@
 
 &trackball_peripheral_listener {
     input-processors =
-        // multiply sensitivity by 1, divide by 12 (make it slower for scrolling),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // multiply sensitivity by 1, divide by 12 (make it slower for scrolling),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_xy_scaler 1 16>,
-        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_xy_to_scroll_mapper>,
-        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>;
 };
 
@@ -329,6 +315,6 @@
 
 &trackball_central_listener {
     input-processors =
-        // activate mouse layer within 500 ms of the trackball moving ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // activate mouse layer within 500 ms of the trackball moving ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_temp_layer 5 500>;
 };
