@@ -201,8 +201,8 @@
 &kp TAB     &tap_long_press_left LCMD I  &Tap_Preferred_180ms_Left LEFT_ALT E  &Tap_Preferred_180ms_Left LEFT_CONTROL A  &tap_preferred_short_left LEFT_SHIFT R  &kp G                                &kp F  &tap_preferred_short LEFT_SHIFT S  &Tap_Preferred_180ms LEFT_CONTROL T  &Tap_Preferred_180ms LEFT_ALT Y  &tap_long_press LEFT_COMMAND N  &kp SQT
 &kp LSHFT   &kp COMMA                    &Tap_Preferred_180ms_Left LG(Z) SEMI  &Tap_Preferred_180ms_Left LG(X) SLASH     &Tap_Preferred_180ms_Left LG(C) H       &kp Q                                &kp Z  &Tap_Preferred_180ms LG(V) W       &kp M                                &kp K                            &kp X                           &kp SQT
                                          &aero_leader                          &tmux_leader                                                                                                                                                     &tmux_leader                         &aero_leader
-                                                                                                                         &lt_tap_preferred 2 SPACE               &lt_tap_preferred 4 ESCAPE  &mo 3    &mo 3  &lt 1 ENTER                        &kp BACKSPACE
-                                                                                                                         &kp TAB                                 &caps_word_lock CAPSLOCK 0  &mo 4    &mo 4  &mo 4                              &sk LEFT_SHIFT
+                                                                                                                         &lt_tap_preferred 2 SPACE               &lt_tap_preferred 5 ESCAPE  &mo 3    &mo 3  &lt 1 ENTER                        &kp BACKSPACE
+                                                                                                                         &kp TAB                                 &caps_word_lock CAPSLOCK 0  &mo 5    &mo 5  &mo 5                              &sk LEFT_SHIFT
             >;
         };
 
@@ -214,7 +214,7 @@
 &kp MINUS     &kp PLUS    &Tap_Preferred_180ms_Left LEFT_ALT NUMBER_4  &Tap_Preferred_180ms_Left LEFT_CONTROL KP_NUMBER_5  &tap_preferred_short_left LEFT_SHIFT KP_NUMBER_6  &kp N0                             &alt_shift_kp          &tap_preferred_short LEFT_SHIFT LEFT  &Tap_Preferred_180ms LEFT_CONTROL DOWN_ARROW  &Tap_Preferred_180ms LEFT_ALT UP_ARROW  &tap_long_press LCMD RIGHT     &kp D
 &kp ASTERISK  &kp COMMA   &kp N1                                       &kp N2                                              &kp N3                                            &kp K                              &kp LS(LA(SEMICOLON))  &macro_preferred_short 0 DOLLAR       &tap_preferred_short LC(LEFT) LC(D)           &tap_preferred_short LC(RIGHT) LC(U)    &tap_preferred_short LS(G) N0  &none
                           &aero_leader                                 &tmux_leader                                                                                                                                                                                          &tmux_leader                                  &aero_leader
-                                                                                                                           &trans                                            &mo 5             &alt_shift_kp    &kp LA(LEFT_SHIFT)     &kp LA(LEFT_SHIFT)                    &trans
+                                                                                                                           &trans                                            &mo 4             &alt_shift_kp    &kp LA(LEFT_SHIFT)     &kp LA(LEFT_SHIFT)                    &trans
                                                                                                                            &kp LESS_THAN                                     &kp GREATER_THAN  &trans           &trans                 &trans                                &trans
             >;
         };
@@ -245,19 +245,6 @@
             >;
         };
 
-        Mouse_Normal {
-            bindings = <
-&trans  &trans  &trans          &trans          &trans           &trans                       &trans            &trans                                 &trans                                   &trans                                   &trans                              &trans
-&trans  &trans  &trans          &trans          &trans           &trans                       &trans            &trans                                 &trans                                   &trans                                   &trans                              &trans
-&none   &none   &mkp RCLK       &mmv MOVE_UP    &mkp LCLK        &msc SCRL_UP                 &kp LCMD          &mkp LCLK                              &mkp MCLK                                &mkp RCLK                                &kp LEFT_SHIFT                      &none
-&none   &none   &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &msc SCRL_DOWN               &kp LEFT_CONTROL  &tap_preferred_short LEFT_SHIFT ENTER  &Tap_Preferred_180ms LEFT_CONTROL SPACE  &Tap_Preferred_180ms LEFT_ALT BACKSLASH  &tap_long_press LEFT_COMMAND RIGHT  &none
-&none   &none   &msc SCRL_LEFT  &mkp MCLK       &msc SCRL_RIGHT  &mkp MCLK                    &kp LEFT_ALT      &kp LEFT_ARROW                         &kp DOWN                                 &kp UP_ARROW                             &kp RIGHT                           &none
-                &trans          &trans                                                                                                                 &trans                                   &trans
-                                                &trans           &mkp MB1        &mkp RCLK    &kp SPACE         &trans                                 &trans
-                                                &mkp LCLK        &mkp LCLK       &mkp RCLK    &mkp MB4          &mkp RCLK                              &kp LEFT_SHIFT
-            >;
-        };
-
         vim_motions {
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans                             &trans                               &trans                           &trans                              &trans
@@ -268,6 +255,19 @@
                 &trans  &trans                                                                       &trans                               &trans
                                 &trans  &trans  &trans    &trans  &trans                             &trans
                                 &trans  &trans  &trans    &trans  &trans                             &trans
+            >;
+        };
+
+        Mouse_Normal {
+            bindings = <
+&trans  &trans  &trans          &trans          &trans           &trans                       &trans            &trans                                 &trans                                   &trans                                   &trans                              &trans
+&trans  &trans  &trans          &trans          &trans           &trans                       &trans            &trans                                 &trans                                   &trans                                   &trans                              &trans
+&none   &none   &mkp RCLK       &mmv MOVE_UP    &mkp LCLK        &msc SCRL_UP                 &kp LCMD          &mkp LCLK                              &mkp MCLK                                &mkp RCLK                                &kp LEFT_SHIFT                      &none
+&none   &none   &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &msc SCRL_DOWN               &kp LEFT_CONTROL  &tap_preferred_short LEFT_SHIFT ENTER  &Tap_Preferred_180ms LEFT_CONTROL SPACE  &Tap_Preferred_180ms LEFT_ALT BACKSLASH  &tap_long_press LEFT_COMMAND RIGHT  &none
+&none   &none   &msc SCRL_LEFT  &mkp MCLK       &msc SCRL_RIGHT  &mkp MCLK                    &kp LEFT_ALT      &kp LEFT_ARROW                         &kp DOWN                                 &kp UP_ARROW                             &kp RIGHT                           &none
+                &trans          &trans                                                                                                                 &trans                                   &trans
+                                                &trans           &mkp LCLK       &mkp RCLK    &kp SPACE         &trans                                 &trans
+                                                &mkp LCLK        &mkp LCLK       &mkp RCLK    &mkp MB4          &mkp RCLK                              &kp LEFT_SHIFT
             >;
         };
 
@@ -303,11 +303,11 @@
 
 &trackball_peripheral_listener {
     input-processors =
-        // multiply sensitivity by 1, divide by 12 (make it slower for scrolling),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // multiply sensitivity by 1, divide by 12 (make it slower for scrolling),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_xy_scaler 1 16>,
-        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_xy_to_scroll_mapper>,
-        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>;
 };
 
@@ -315,6 +315,6 @@
 
 &trackball_central_listener {
     input-processors =
-        // activate mouse layer within 500 ms of the trackball moving ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // activate mouse layer within 500 ms of the trackball moving ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_temp_layer 5 500>;
 };
